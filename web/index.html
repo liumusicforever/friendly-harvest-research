@@ -9,12 +9,15 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="progress" id="progress"></div>
 <button class="theme-toggle" type="button" aria-label="切換深淺色" title="切換深淺色">◐</button>
 
-<nav class="topnav">
-  <a class="brand" href="index.html">友善採捕・研究筆記</a>
-  <a class="navlink active" href="index.html">現況與問題</a>
-  <a class="navlink" href="plan.html">短中長期建議</a>
+<nav class="topnav" aria-label="兩頁導覽">
+  <a class="brand" href="index.html">友善採捕<span class="sub">・研究筆記</span></a>
+  <div class="tabs" role="tablist">
+    <a class="tab active" href="index.html" role="tab" aria-selected="true"><span class="tab-n">1</span>現況與問題</a>
+    <a class="tab" href="plan.html" role="tab" aria-selected="false"><span class="tab-n">2</span>短中長期建議</a>
+  </div>
 </nav>
 
 <div class="wrap">
@@ -488,5 +491,7 @@
 </div>
 
 <script src="app.js"></script>
+<button class="to-top" id="toTop" type="button" aria-label="回到頂端" title="回到頂端">↑</button>
+<button class="backref" id="backRef" type="button">↩ 回到內文</button>
 </body>
 </html>
