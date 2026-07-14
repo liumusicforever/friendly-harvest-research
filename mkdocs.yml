@@ -1,0 +1,72 @@
+site_name: 友善採捕行動方案・研究專案
+site_description: 從「友善釣魚」到「友善採捕」——以 BOFFFF 與 slot limit 科學為基礎的休閒採捕教育指引研究
+docs_dir: build/docs
+site_dir: build/site
+use_directory_urls: true
+
+theme:
+  name: material
+  language: zh-TW
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - content.code.copy
+    - search.highlight
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: 切換至深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: 切換至淺色模式
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+
+plugins:
+  - search:
+      lang:
+        - ja
+        - en
+
+nav:
+  - 專案首頁: index.md
+  - 作戰指令: AGENT_BRIEF.md
+  - 框架:
+      - 來源分級規則: 00_framework/source-tiers.md
+      - 歸檔防火牆: 00_framework/archive-policy.md
+      - 方法論: 00_framework/methodology.md
+  - 研究成果:
+      - 1 台灣現況基線: 01_taiwan-baseline.md
+      - 2 科學理論基礎: 02_scientific-basis.md
+      - 3 各國案例:
+          - 3a 日本・沖繩: 03_country-cases/03a_japan-okinawa.md
+          - 3b 美國: 03_country-cases/03b_usa.md
+          - 3c 澳洲: 03_country-cases/03c_australia.md
+          - 3d 紐西蘭: 03_country-cases/03d_new-zealand.md
+          - 3e 歐盟與其他: 03_country-cases/03e_eu-others.md
+      - 4 魚槍專題: 04_spearfishing.md
+      - 5 比較矩陣: 05_comparative-matrix.md
+      - 6 整合方案草案: 06_integrated-proposal.md
+  - 佐證與素材:
+      - 來源總表: sources/source-registry.md
+      - 素材檔案庫: archive/index.md
+      - 歸檔索引: archive/archive-index.md
+      - 摘要卡: archive/cards-index.md
+  - 變更紀錄: CHANGELOG.md
