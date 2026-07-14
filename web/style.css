@@ -474,3 +474,39 @@
   .toolbox tbody th{font-weight:600;color:var(--ink);white-space:nowrap;font-size:15px}
   .toolbox .tw{color:var(--accent);font-family:var(--mono);font-size:12px}
   .toolbox tr.hi td,.toolbox tr.hi th{background:var(--sea-dim)}
+
+  /* ---- country deep-dive (evolution page) ---- */
+  .country{margin:0 0 8px;padding:30px 0 8px;border-top:2px solid var(--ink)}
+  .country .c-kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea)}
+  .country h2{margin:10px 0 4px}
+  .country .c-oneline{font-size:18px;line-height:1.7;color:var(--ink-soft);margin:0 0 8px}
+  .country .c-philosophy{display:inline-block;margin:10px 0 0;padding:6px 14px;border:1px solid var(--line);border-radius:20px;
+    font-family:var(--mono);font-size:12px;color:var(--ink-soft);background:var(--surface)}
+
+  /* policy timeline */
+  .tl{margin:26px 0;display:flex;flex-direction:column;gap:0}
+  .tl-row{display:grid;grid-template-columns:78px 1fr;gap:0 20px;position:relative;padding:0 0 22px 0}
+  .tl-row:last-child{padding-bottom:4px}
+  .tl-year{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--accent);text-align:right;padding-top:1px;font-variant-numeric:tabular-nums}
+  .tl-body{position:relative;padding-left:24px;border-left:2px solid var(--line)}
+  .tl-body::before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--ground)}
+  .tl-body h4{margin:0 0 4px;font-size:16px;font-weight:600;color:var(--ink);line-height:1.4}
+  .tl-body p{margin:0;font-size:15px;line-height:1.7;color:var(--ink-soft)}
+  @media (max-width:560px){.tl-row{grid-template-columns:56px 1fr;gap:0 12px}.tl-year{font-size:12.5px}}
+
+  /* pros / cons */
+  .pc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+  .pc>div{padding:18px 20px;border-radius:4px;border:1px solid var(--line);background:var(--surface)}
+  .pc .pc-h{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+  .pc .pros .pc-h{color:var(--sea)}
+  .pc .cons .pc-h{color:var(--accent)}
+  .pc ul{list-style:none;margin:0;display:flex;flex-direction:column;gap:9px}
+  .pc li{position:relative;padding-left:18px;font-size:14.5px;line-height:1.6;color:var(--ink-soft)}
+  .pc .pros li::before{content:"+";position:absolute;left:0;color:var(--sea);font-family:var(--mono);font-weight:600}
+  .pc .cons li::before{content:"−";position:absolute;left:0;color:var(--accent);font-family:var(--mono);font-weight:600}
+  @media (max-width:560px){.pc{grid-template-columns:1fr}}
+
+  /* lesson callout for Taiwan */
+  .lesson{margin:18px 0 34px;padding:16px 20px;border-left:3px solid var(--sea);background:var(--sea-dim);border-radius:0 3px 3px 0}
+  .lesson .l-h{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--sea);margin-bottom:6px}
+  .lesson p{margin:0;font-size:15.5px;line-height:1.72;color:var(--ink)}
