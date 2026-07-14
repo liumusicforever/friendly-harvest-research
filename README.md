@@ -43,11 +43,13 @@
 
 ## 網站
 
-`main` 分支每次 push 會自動 build 並部署到 GitHub Pages。
+研究報告的單頁網站位於 [`web/index.html`](web/index.html)，`main` 分支每次 push 會經 GitHub Actions
+自動部署到 GitHub Pages（設定見 [.github/workflows/pages.yml](.github/workflows/pages.yml)）。
 
-本機預覽：
+本機預覽：直接用瀏覽器開 `web/index.html`，或
 
 ```bash
-pip install -r requirements.txt
-python scripts/build_site.py && mkdocs serve
+python3 -m http.server -d web 8000   # 然後開 http://localhost:8000
 ```
+
+> `mkdocs.yml`、`scripts/build_site.py` 為早期的文件入口網站設定，目前**未用於部署**，保留供未來擴充。
