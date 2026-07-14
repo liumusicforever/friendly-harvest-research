@@ -4,408 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="從友善釣魚到友善採捕：以 BOFFFF 與 slot limit 科學為基礎的休閒採捕教育指引研究">
-<title>友善採捕・研究筆記</title>
-
-<style>
-  *,*::before,*::after{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{margin:0}
-  img{max-width:100%}
-  .theme-toggle{position:fixed;top:14px;right:16px;z-index:50;width:38px;height:38px;border-radius:50%;
-    border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);cursor:pointer;
-    font-size:16px;line-height:1;box-shadow:var(--shadow);transition:color .2s,border-color .2s}
-  .theme-toggle:hover{color:var(--accent);border-color:var(--accent)}
-  .theme-toggle:focus-visible{outline:2px solid var(--sea);outline-offset:2px}
-
-  :root {
-    --ink:        #0c2a30;
-    --ink-soft:   #45646a;
-    --ink-faint:  #7d979b;
-    --ground:     #eef3f2;
-    --surface:    #ffffff;
-    --line:       #cfdcdb;
-    --accent:     #c8492f;
-    --accent-dim: #e8d6d1;
-    --sea:        #2b7987;
-    --sea-dim:    #d5e6e8;
-    --rule:       rgba(12,42,48,.12);
-    --shadow:     0 1px 2px rgba(12,42,48,.05), 0 8px 24px -12px rgba(12,42,48,.15);
-
-    --serif: "Noto Serif TC", "Songti TC", "STSong", "Source Han Serif TC", Georgia, serif;
-    --sans:  "PingFang TC", "Noto Sans TC", "Heiti TC", -apple-system, "Segoe UI", sans-serif;
-    --mono:  ui-monospace, "SF Mono", Menlo, "Roboto Mono", monospace;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --ink:        #dfeceb;
-      --ink-soft:   #9db4b7;
-      --ink-faint:  #6c8589;
-      --ground:     #071a1e;
-      --surface:    #0d262b;
-      --line:       #1e3f46;
-      --accent:     #f1745a;
-      --accent-dim: #3a1f1a;
-      --sea:        #6fc3d1;
-      --sea-dim:    #12333a;
-      --rule:       rgba(223,236,235,.14);
-      --shadow:     0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.6);
-    }
-  }
-  :root[data-theme="dark"] {
-    --ink:        #dfeceb;
-    --ink-soft:   #9db4b7;
-    --ink-faint:  #6c8589;
-    --ground:     #071a1e;
-    --surface:    #0d262b;
-    --line:       #1e3f46;
-    --accent:     #f1745a;
-    --accent-dim: #3a1f1a;
-    --sea:        #6fc3d1;
-    --sea-dim:    #12333a;
-    --rule:       rgba(223,236,235,.14);
-    --shadow:     0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.6);
-  }
-  :root[data-theme="light"] {
-    --ink:        #0c2a30;
-    --ink-soft:   #45646a;
-    --ink-faint:  #7d979b;
-    --ground:     #eef3f2;
-    --surface:    #ffffff;
-    --line:       #cfdcdb;
-    --accent:     #c8492f;
-    --accent-dim: #e8d6d1;
-    --sea:        #2b7987;
-    --sea-dim:    #d5e6e8;
-    --rule:       rgba(12,42,48,.12);
-    --shadow:     0 1px 2px rgba(12,42,48,.05), 0 8px 24px -12px rgba(12,42,48,.15);
-  }
-
-  body {
-    background: var(--ground);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 17px;
-    line-height: 1.8;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .wrap {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0 24px 96px;
-    display: grid;
-    grid-template-columns: 96px minmax(0, 1fr);
-    gap: 0 32px;
-  }
-
-  /* ---- depth rail ---- */
-  .rail { position: relative; }
-  .rail-inner {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2px;
-    padding: 40px 0;
-  }
-  .rail-inner::before {
-    content: "";
-    position: absolute;
-    left: 11px; top: 40px; bottom: 40px;
-    width: 1px;
-    background: linear-gradient(to bottom, transparent, var(--line) 12%, var(--line) 88%, transparent);
-  }
-  .tick {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 5px 0;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .06em;
-    color: var(--ink-faint);
-    text-decoration: none;
-    transition: color .25s;
-  }
-  .tick .dot {
-    width: 7px; height: 7px;
-    margin-left: 8px;
-    border-radius: 50%;
-    background: var(--line);
-    flex: none;
-    transition: background .25s, transform .25s;
-  }
-  .tick:hover { color: var(--ink); }
-  .tick.on { color: var(--accent); }
-  .tick.on .dot { background: var(--accent); transform: scale(1.5); }
-  .tick:focus-visible { outline: 2px solid var(--sea); outline-offset: 3px; border-radius: 3px; }
-
-  /* ---- main column ---- */
-  main { max-width: 66ch; padding-top: 12vh; }
-
-  .eyebrow {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--sea);
-  }
-
-  h1 {
-    font-family: var(--serif);
-    font-size: clamp(38px, 6vw, 58px);
-    line-height: 1.22;
-    font-weight: 600;
-    letter-spacing: -.01em;
-    text-wrap: balance;
-    margin: 18px 0 0;
-  }
-  .lede {
-    font-size: 20px;
-    line-height: 1.75;
-    color: var(--ink-soft);
-    margin-top: 22px;
-  }
-  .meta {
-    margin-top: 32px;
-    padding-top: 18px;
-    border-top: 1px solid var(--rule);
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--ink-faint);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 20px;
-  }
-
-  section { margin-top: 88px; scroll-margin-top: 24px; }
-
-  .depth {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: .1em;
-    color: var(--ink-faint);
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-  }
-  .depth::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-  }
-
-  h2 {
-    font-family: var(--serif);
-    font-size: clamp(26px, 3.4vw, 33px);
-    line-height: 1.4;
-    font-weight: 600;
-    text-wrap: balance;
-    margin: 14px 0 20px;
-  }
-  h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 34px 0 10px;
-    letter-spacing: .01em;
-  }
-  p { margin: 0 0 18px; }
-  strong { font-weight: 600; color: var(--ink); }
-
-  /* ---- citation ---- */
-  .c {
-    font-family: var(--mono);
-    font-size: 11px;
-    vertical-align: .35em;
-    color: var(--accent);
-    text-decoration: none;
-    padding: 0 1px 0 2px;
-    border-bottom: 1px dotted transparent;
-  }
-  .c:hover { border-bottom-color: var(--accent); }
-  .c:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
-
-  /* ---- pull quote from a document ---- */
-  .doc {
-    margin: 24px 0;
-    padding: 18px 22px;
-    background: var(--surface);
-    border-left: 3px solid var(--sea);
-    border-radius: 2px;
-    box-shadow: var(--shadow);
-  }
-  .doc q {
-    display: block;
-    font-family: var(--serif);
-    font-size: 18px;
-    line-height: 1.7;
-    quotes: "「" "」";
-  }
-  .doc cite {
-    display: block;
-    margin-top: 10px;
-    font-family: var(--mono);
-    font-size: 11.5px;
-    font-style: normal;
-    color: var(--ink-faint);
-    letter-spacing: .02em;
-  }
-  .doc.hot { border-left-color: var(--accent); }
-
-  /* ---- key finding card ---- */
-  .find {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 4px 16px;
-    margin: 28px 0;
-    padding: 22px 24px;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    box-shadow: var(--shadow);
-  }
-  .find .num {
-    grid-row: span 2;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--accent);
-    padding-top: 5px;
-    font-variant-numeric: tabular-nums;
-  }
-  .find h3 { margin: 0; font-size: 17px; }
-  .find p { margin: 6px 0 0; color: var(--ink-soft); font-size: 16px; }
-
-  /* ---- table ---- */
-  .scroller { overflow-x: auto; margin: 26px 0; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14.5px;
-    font-variant-numeric: tabular-nums;
-  }
-  th, td {
-    text-align: left;
-    padding: 10px 14px 10px 0;
-    border-bottom: 1px solid var(--rule);
-    vertical-align: top;
-    white-space: nowrap;
-  }
-  th {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    font-weight: 400;
-  }
-  td.wrap-cell { white-space: normal; min-width: 15ch; }
-  .nil { color: var(--accent); font-family: var(--mono); font-size: 13px; }
-  .yes { color: var(--sea); font-family: var(--mono); font-size: 13px; }
-
-  /* ---- verdict strip: legal ---- */
-  .strip { display: flex; flex-direction: column; gap: 1px; margin: 26px 0; background: var(--line); border-radius: 3px; overflow: hidden; }
-  .strip div { background: var(--surface); padding: 14px 18px; display: flex; gap: 14px; align-items: baseline; font-size: 15.5px; }
-  .strip .tag {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .05em;
-    padding: 2px 8px;
-    border-radius: 2px;
-    flex: none;
-    white-space: nowrap;
-  }
-  .strip .ok  { background: var(--sea-dim); color: var(--sea); }
-  .strip .no  { background: var(--accent-dim); color: var(--accent); }
-
-  /* ---- open question ---- */
-  .todo {
-    margin: 26px 0;
-    padding: 20px 22px;
-    border: 1px dashed var(--line);
-    border-radius: 3px;
-    background: transparent;
-  }
-  .todo .eyebrow { color: var(--ink-faint); }
-  .todo p { margin: 10px 0 0; color: var(--ink-soft); font-size: 16px; }
-  .todo p:last-child { margin-bottom: 0; }
-
-  ul.gaps { list-style: none; margin: 22px 0; }
-  ul.gaps li {
-    padding: 12px 0 12px 24px;
-    border-bottom: 1px solid var(--rule);
-    position: relative;
-    font-size: 16px;
-    color: var(--ink-soft);
-  }
-  ul.gaps li::before {
-    content: "?";
-    position: absolute;
-    left: 0; top: 12px;
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--accent);
-  }
-  ul.gaps strong { color: var(--ink); }
-
-  /* ---- sources ---- */
-  #sources { margin-top: 110px; padding-top: 40px; border-top: 2px solid var(--ink); }
-  ol.src { list-style: none; counter-reset: s; margin-top: 28px; }
-  ol.src li {
-    counter-increment: s;
-    display: grid;
-    grid-template-columns: 44px 1fr;
-    gap: 14px;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--rule);
-    scroll-margin-top: 40px;
-  }
-  ol.src li::before {
-    content: "S" counter(s, decimal-leading-zero);
-    font-family: var(--mono);
-    font-size: 11.5px;
-    color: var(--accent);
-    padding-top: 3px;
-  }
-  ol.src li:target { background: var(--sea-dim); border-radius: 3px; padding-left: 10px; padding-right: 10px; }
-  .src-claim { font-size: 15.5px; margin-bottom: 4px; }
-  .src-detail { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); line-height: 1.7; word-break: break-word; }
-  .src-detail a { color: var(--sea); text-decoration: none; border-bottom: 1px solid var(--sea-dim); }
-  .src-detail a:hover { border-bottom-color: var(--sea); }
-  .src-quote { font-family: var(--serif); font-size: 14px; color: var(--ink-soft); margin-top: 4px; }
-
-  footer {
-    margin-top: 60px;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--ink-faint);
-    line-height: 1.9;
-  }
-
-  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
-  .reveal.in { opacity: 1; transform: none; }
-
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-    * { scroll-behavior: auto !important; }
-  }
-
-  @media (max-width: 800px) {
-    .wrap { grid-template-columns: 1fr; padding: 0 20px 72px; }
-    .rail { display: none; }
-    main { padding-top: 8vh; }
-    section { margin-top: 64px; }
-  }
-</style>
-
+<meta name="description" content="台灣休閒採捕現況與問題：友善釣魚方案為何遺漏魚槍、體長規範為何只有下限、新北草案的不對稱禁令。">
+<title>友善採捕・現況與問題</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <button class="theme-toggle" type="button" aria-label="切換深淺色" title="切換深淺色">◐</button>
+
+<nav class="topnav">
+  <a class="brand" href="index.html">友善採捕・研究筆記</a>
+  <a class="navlink active" href="index.html">現況與問題</a>
+  <a class="navlink" href="plan.html">短中長期建議</a>
+</nav>
+
 <div class="wrap">
   <nav class="rail" aria-label="depth">
     <div class="rail-inner">
@@ -413,27 +24,25 @@
       <a class="tick" href="#gap"><span class="dot"></span>−3 m</a>
       <a class="tick" href="#zero"><span class="dot"></span>−10 m</a>
       <a class="tick" href="#law"><span class="dot"></span>−18 m</a>
-      <a class="tick" href="#why"><span class="dot"></span>−25 m</a>
-      <a class="tick" href="#science"><span class="dot"></span>−32 m</a>
-      <a class="tick" href="#method"><span class="dot"></span>−36 m</a>
-      <a class="tick" href="#floor"><span class="dot"></span>−40 m</a>
+      <a class="tick" href="#trigger"><span class="dot"></span>−24 m</a>
       <a class="tick" href="#sources"><span class="dot"></span>底質</a>
     </div>
   </nav>
 
   <main>
     <header id="surface">
-      <div class="eyebrow">研究筆記 ・ 第一階段</div>
+      <div class="eyebrow">第一頁・現況與問題</div>
       <h1>魚槍不是不被允許，<br>是不被想起。</h1>
       <p class="lede">
         台灣有一份官方的「友善釣魚行動方案」。它提到魚槍一次，然後把魚槍排除在整份方案之外。
-        這頁筆記在回答一個問題：如果你是一個守法的自潛採捕者，
-        台灣的制度到底教了你什麼——答案是，幾乎什麼都沒有。
+        這頁在回答一個問題：如果你是一個守法的自潛採捕者，台灣的制度到底教了你什麼——
+        答案是，幾乎什麼都沒有。而現在，新北市還想更進一步，單獨把魚槍禁掉。
       </p>
       <div class="meta">
         <span>最後更新　2026-07-14</span>
-        <span>階段　台灣基線＋科學骨幹</span>
-        <span>來源　34 筆・全數 Tier 1</span>
+        <span>階段　台灣基線（審閱中）</span>
+        <span>來源　29 筆・全數 Tier 1</span>
+        <span>下一頁 →　<a href="plan.html" style="color:var(--accent)">短中長期建議</a></span>
       </div>
     </header>
 
@@ -441,22 +50,17 @@
       <div class="depth">−3 m　淺水區</div>
       <h2>釣魚可以放回去，採捕不行</h2>
       <p>
-        這是整件事的起點。釣竿釣上一條魚，你可以決定要不要放牠回去；
-        魚槍射出去，決定在扣扳機<em>之前</em>就做完了。工具的本質不同，
-        「友善」的定義就不可能照抄。
+        釣竿釣上一條魚，你可以決定放不放；魚槍射出去，決定在扣扳機<em>之前</em>就做完了。
+        工具本質不同，「友善」的定義就不可能照抄。
       </p>
-      <p>
-        但台灣官方的「友善」是什麼意思？<strong>它跟不傷魚一點關係都沒有。</strong>
-        方案裡唯一一次正式定義寫在第 3 頁的腳註：
-      </p>
+      <p>但台灣官方的「友善」是什麼意思？<strong>它跟不傷魚一點關係都沒有。</strong>唯一的正式定義寫在方案第 3 頁腳註：</p>
       <div class="doc">
         <q>友善釣魚：指兼顧場域安全、環境清潔及資源永續的垂釣活動</q>
         <cite>向海致敬－台灣友善釣魚行動方案，p.3 腳註 3 <a class="c" href="#s01">S01</a></cite>
       </div>
       <p>
-        安全、清潔、永續。全文沒有「不傷魚」，沒有動物福利。
-        所以我們要做的不是把「不傷魚」擴張到魚槍——那是打空氣。
-        我們要做的是<strong>把「資源永續」這一支，做到它該有的樣子</strong>。
+        安全、清潔、永續——沒有動物福利。所以我們要做的不是把「不傷魚」擴張到魚槍（那是打空氣），
+        而是<strong>把方案自己寫的「資源永續」做到它該有的樣子</strong>。這條線，第二頁接著談。
       </p>
     </section>
 
@@ -467,232 +71,106 @@
       <div class="find">
         <span class="num">01</span>
         <h3>方案點名了魚槍，然後把它排除</h3>
-        <p>不是遺漏。是先承認、再排除——這種沉默比沒提到更難辯解。</p>
+        <p>不是遺漏，是先承認、再排除——這種沉默比沒提到更難辯解。</p>
       </div>
-      <p>
-        方案第 1 頁承認魚槍是休閒採捕的一種<a class="c" href="#s02">S02</a>，
-        第 6 頁就把採捕方式鎖死：
-      </p>
+      <p>方案第 1 頁承認魚槍是休閒採捕的一種<a class="c" href="#s02">S02</a>，第 6 頁就把採捕方式鎖死：</p>
       <div class="doc hot">
         <q>限使用釣竿釣魚（釣客聚集之處，1 人至多 2 竿），不得使用其他網具或從事捕撈行為</q>
         <cite>同上，p.6・資源永續－釣客規範 <a class="c" href="#s03">S03</a></cite>
       </div>
-      <p>
-        後面 44 頁——八大面向、行動分工表、五區協調平台、垂釣認同卡、回報 APP、友善魚種清單——
-        <strong>全部只服務釣竿</strong>。魚槍族群不是被禁止，是被整套教育與資訊系統遺忘。
-      </p>
+      <p>後面 44 頁——八大面向、行動分工表、友善魚種清單——<strong>全部只服務釣竿</strong>。魚槍族群不是被禁止，是被整套教育與資訊系統遺忘。</p>
 
       <div class="find">
         <span class="num">02</span>
         <h3>全台灣的體長規定，一條上限都沒有</h3>
         <p>中央加八個縣市，尺寸規定 100% 是「未滿 X 公分禁止採捕」。上限出現次數：零。</p>
       </div>
-      <p>
-        方案附錄的魚種清單，欄位名稱叫「岸釣攜回建議（cm）」，值一律是「10 以上」「15 以上」「20 以上」<a class="c" href="#s05">S05</a>；
-        強制性的那條寫得更直白：
-      </p>
+      <p>方案魚種清單欄位叫「岸釣攜回建議（cm）」，值一律「N 以上」<a class="c" href="#s05">S05</a>；強制那條寫得更白：</p>
       <div class="doc">
         <q>捕獲幼魚（如小於 15 公分者）應馬上釋回並禁止攜離</q>
         <cite>同上，p.6 <a class="c" href="#s04">S04</a></cite>
       </div>
-      <p>縣市層級查下去，情況一模一樣：</p>
       <div class="scroller">
         <table>
-          <thead>
-            <tr><th>轄區</th><th>下限</th><th>上限 / slot</th><th class="wrap-cell">實例</th></tr>
-          </thead>
+          <thead><tr><th>轄區</th><th>下限</th><th>上限 / slot</th><th class="wrap-cell">實例</th></tr></thead>
           <tbody>
             <tr><td>基隆市</td><td class="yes">有</td><td class="nil">無</td><td class="wrap-cell">島礁磯釣：魚體未滿 20cm 應即釣即放，罰 2–10 萬 <a class="c" href="#s18">S18</a></td></tr>
             <tr><td>新北市</td><td class="yes">有</td><td class="nil">無</td><td class="wrap-cell">珊瑚礁魚類未滿 20cm、九孔 5cm、龍蝦 20cm <a class="c" href="#s21">S21</a></td></tr>
-            <tr><td>連江縣</td><td class="yes">有</td><td class="nil">無</td><td class="wrap-cell">黑毛 15cm、赤點石斑 15cm、章魚 200g <a class="c" href="#s19">S19</a></td></tr>
-            <tr><td>花蓮縣</td><td class="yes">有</td><td class="nil">無</td><td class="wrap-cell">龍蝦 20cm、九孔殼長 4cm <a class="c" href="#s22">S22</a></td></tr>
-            <tr><td>臺南市</td><td class="nil">無</td><td class="nil">無</td><td class="wrap-cell">「體長」二字在全市法規命中 0 次 <a class="c" href="#s23">S23</a></td></tr>
-            <tr><td>金門縣</td><td class="nil">無</td><td class="nil">無</td><td class="wrap-cell">只有區域、漁具、物種禁令 <a class="c" href="#s24">S24</a></td></tr>
+            <tr><td>連江縣</td><td class="yes">有</td><td class="nil">無</td><td class="wrap-cell">黑毛 15cm、赤點石斑 15cm、章魚 200g <a class="c" href="#s20">S20</a></td></tr>
+            <tr><td>臺南市</td><td class="nil">無</td><td class="nil">無</td><td class="wrap-cell">「體長」二字在全市法規命中 0 次</td></tr>
           </tbody>
         </table>
       </div>
-      <p>
-        <strong>台灣的邏輯只有一句話：讓小魚長大到至少繁殖一次。</strong>
-        這個邏輯是對的，但它只做了一半——它完全不管你把最大的那條母魚帶走。
-      </p>
+      <p><strong>台灣的邏輯只有一句話：讓小魚長大到至少繁殖一次。</strong>這個邏輯是對的，但它只做了一半——它完全不管你把最大的那條母魚帶走。（為什麼這是問題，見第二頁的科學。）</p>
 
       <div class="find">
         <span class="num">03</span>
         <h3>你在法律上根本不是「漁民」</h3>
         <p>休閒自用採捕不是「漁業」。所以政府對你，沒有任何日常管制介面。</p>
       </div>
-      <p>
-        《漁業法》第 3 條定義得很清楚：漁業是「採捕或養殖水產動植物<strong>業</strong>」<a class="c" href="#s07">S07</a>——
-        「業」是營業。第 6 條也只要求「<strong>經營漁業</strong>者」取得證照<a class="c" href="#s08">S08</a>。
-        你自己下水打一條魚回家吃，不在裡面。
-      </p>
-      <p>
-        結果是一個奇怪的組合：<strong>預設無管制，例外重罰。</strong>
-        沒有證照、沒有回報義務、沒有全國性的體長或數量規範；
-        但只要踩到某一紙公告，法定刑是三年以下有期徒刑<a class="c" href="#s09">S09</a>。
-        而《國家公園法》全區禁止捕魚，罰鍰上限卻只有一千元<a class="c" href="#s15">S15</a>。
-      </p>
-      <p>
-        這代表一件事：<strong>要改變採捕者的行為，靠罰則是沒有用的，只能靠教育與自律。</strong>
-        這不是理想主義，是這套法律結構逼出來的唯一路徑。
-      </p>
+      <p>《漁業法》第 3 條說得清楚：漁業是「採捕或養殖水產動植物<strong>業</strong>」<a class="c" href="#s07">S07</a>——「業」是營業。第 6 條也只要求「經營漁業者」取得證照<a class="c" href="#s08">S08</a>。你自己下水打一條魚回家吃，不在裡面。</p>
+      <p>結果是個奇怪組合：<strong>預設無管制，例外重罰。</strong>沒有證照、沒有回報義務、沒有全國體長規範；但只要踩到某紙公告，法定刑是三年以下有期徒刑<a class="c" href="#s09">S09</a>。而《國家公園法》全區禁捕魚，罰鍰上限卻只有一千元<a class="c" href="#s15">S15</a>。</p>
+      <p>這代表一件事：<strong>要改變採捕者的行為，靠罰則沒有用，只能靠教育與自律。</strong>不是理想主義，是這套法律結構逼出來的唯一路徑。</p>
     </section>
 
     <section id="law" class="reveal">
       <div class="depth">−18 m　你到底可以做什麼</div>
       <h2>合法的自潛採捕者，是真實存在的</h2>
-      <p>
-        網路上關於「魚槍違不違法」的說法混亂到近乎謠言。我們把法條一條一條翻過，結論是：
-        <strong>台灣沒有全國性的魚槍禁令。</strong>魚槍確實是《槍砲彈藥刀械管制條例》裡的「槍砲」<a class="c" href="#s11">S11</a>，
-        但人民依法可以申請購置，每人兩枝<a class="c" href="#s12">S12</a>。
-      </p>
+      <p>網路上關於「魚槍違不違法」的說法混亂到近乎謠言。我們把法條一條條翻過，結論是：<strong>台灣沒有全國性的魚槍禁令。</strong>魚槍確實是《槍砲彈藥刀械管制條例》裡的「槍砲」<a class="c" href="#s11">S11</a>，但人民依法可申請購置，每人兩枝<a class="c" href="#s12">S12</a>。</p>
       <div class="strip">
         <div><span class="tag ok">可以</span><span>自由潛水（閉氣）＋合法魚槍＋自用不販售——主管機關函復認定<strong>不受《漁業法》第 6 條規範</strong> <a class="c" href="#s14">S14</a></span></div>
-        <div><span class="tag no">不行</span><span>背氣瓶或空壓機採捕。因為「潛水器漁業」證照<strong>自民國 78 年起就不再核發</strong>——不是管制，是無路可走 <a class="c" href="#s13">S13</a></span></div>
+        <div><span class="tag no">不行</span><span>背氣瓶或空壓機採捕。「潛水器漁業」證照<strong>自民國 78 年起就不再核發</strong>——不是管制，是無路可走 <a class="c" href="#s13">S13</a></span></div>
         <div><span class="tag no">不行</span><span>搭娛樂漁船打魚。船上漁法<strong>限竿釣、一支釣、曳繩釣</strong> <a class="c" href="#s10">S10</a></span></div>
-        <div><span class="tag no">不行</span><span>國家公園全區。「禁止狩獵動物或捕捉魚類」，且魚槍不屬於可申請許可的「垂釣」 <a class="c" href="#s15">S15</a></span></div>
-        <div><span class="tag no">不行</span><span>各地保育區與禁漁區。連江縣是全台唯一明文寫出「魚槍」二字的縣級禁令 <a class="c" href="#s20">S20</a>，宜蘭東澳灣也點名了 <a class="c" href="#s25">S25</a></span></div>
+        <div><span class="tag no">不行</span><span>國家公園全區。「禁止狩獵動物或捕捉魚類」，魚槍不屬於可申請的「垂釣」 <a class="c" href="#s15">S15</a></span></div>
       </div>
       <h3>順便拆三個流傳很廣的說法</h3>
-      <p>
-        「漁業法規定用潛水器械採捕須經核准」——<strong>查無此條文</strong>。《漁業法》與施行細則全文，「潛水」「魚槍」出現 0 次。
-        「澎湖禁魚槍」——<strong>查無法源</strong>，縣府反而多次函復確認自潛魚槍自用合法<a class="c" href="#s14">S14</a>。
-        「水域遊憩活動管理辦法禁止潛水攜帶魚槍」——現行版潛水專節<strong>「魚槍」出現 0 次</strong><a class="c" href="#s26">S26</a>。
-      </p>
-      <p>
-        中央曾在 2017 年預告要禁止距岸 12 浬內使用魚槍，但<strong>查無發布施行紀錄</strong><a class="c" href="#s27">S27</a>。
-        這件事的意思是：制度沒有想清楚要怎麼對待魚槍，於是什麼都沒做。
-      </p>
+      <p>「漁業法規定用潛水器械採捕須經核准」——<strong>查無此條文</strong>，全文「潛水」0 次。「澎湖禁魚槍」——<strong>查無法源</strong>，縣府反而多次函復確認自潛自用合法<a class="c" href="#s14">S14</a>。「水域遊憩活動管理辦法禁止潛水攜帶魚槍」——現行版潛水專節<strong>「魚槍」0 次</strong><a class="c" href="#s26">S26</a>。</p>
     </section>
 
-    <section id="why" class="reveal">
-      <div class="depth">−25 m　關鍵反轉</div>
-      <h2>魚槍是唯一能在扣扳機前就選好體型的工具</h2>
+    <section id="trigger" class="reveal">
+      <div class="depth">−24 m　導火線</div>
+      <h2>然後，新北市想單獨把魚槍禁掉</h2>
       <p>
-        在網具和延繩上，「選不了要抓到什麼」是缺點，叫做混獲。
-        在魚槍上，事情反過來——<strong>你看得到，你可以挑，你可以不射。</strong>
+        2026 年 6 月 17 日，新北市發布一份「水產動植物繁殖保育區限制事項」草案。據聯盟掌握的內容，
+        它<strong>允許釣魚等其他休閒採捕方式，卻單獨全面禁止魚槍、魚叉</strong>——而且沒有提出任何足以支持
+        這種不對稱差別待遇的科學實證。
       </p>
       <p>
-        這一點在體長「下限」上沒什麼意義：釣竿釣起一條太小的魚，放回去就好。
-        但一旦談到<strong>上限</strong>，兩種工具的差距就是天與地：
-      </p>
-      <p>
-        而且這不是修辭。釣魚放流的致死率是有實證數字的：一份整合 53 篇研究的分析顯示，
-        被放流的魚<strong>平均 18%（中位數 11%，最高可達 95%）會死亡</strong>，而且<strong>越深水的魚死得越多</strong>（氣壓傷）<a class="c" href="#s31">S31</a>。
-        換句話說，要用釣竿執行「放掉大魚」的上限規則，你每放十條就先弄死約兩條。
-      </p>
-      <div class="doc hot">
-        <q>釣竿一旦釣上那條大母魚，傷害就已經造成，放流平均還是死掉五分之一。魚槍看到牠，可以直接不扣扳機——傷害是零。</q>
-        <cite>核心論證，實證見 Bartholomew &amp; Bohnsack 2005 放流致死率整合分析 <a class="c" href="#s31">S31</a></cite>
-      </div>
-      <p>
-        所以：<strong>體長上限對釣竿幾乎是一句空話，對魚槍卻是唯一真正可執行的規則。</strong>
-        這反過來讓自潛採捕族群，成為全台灣最有資格、也最有能力率先實施「不打大魚」的一群人。
-        而且它不花政府一毛錢執法成本——因為執行的人就是採捕者自己。
-      </p>
-      <p>
-        這也是為什麼這份研究的立場不是「請讓魚槍合法」，而是：
-        <strong>魚槍能做到釣竿做不到的保育行為，只是從來沒有人告訴他們該怎麼做。</strong>
-      </p>
-    </section>
-
-    <section id="science" class="reveal">
-      <div class="depth">−32 m　科學</div>
-      <h2>為什麼「不打大魚」有科學根據</h2>
-      <p>
-        台灣的體長下限，背後的科學是「讓幼魚至少繁殖一次」。這套邏輯正確，但只講了一半。
-        另一半在漁業科學裡有個很成熟的框架——Froese 的<strong>三個指標</strong><a class="c" href="#s30">S30</a>，
-        一句話各講一件事：
-      </p>
-      <div class="strip">
-        <div><span class="tag ok">讓牠繁殖</span><span>Let them spawn — 別抓還沒生過的幼魚。<strong>這是台灣目前唯一在做的一半。</strong></span></div>
-        <div><span class="tag ok">讓牠長大</span><span>Let them grow — 讓魚長到「最適體長」Lopt（產出最大的體型）再採。</span></div>
-        <div><span class="tag ok">讓大的活著</span><span>Let the mega-spawners live — <strong>保護大型產卵個體。台灣完全沒做這一塊。</strong></span></div>
-      </div>
-      <p>
-        第三條就是體長「上限」的科學來源。Froese 講得很直接：健康的族群裡，
-        大型產卵個體<strong>應該佔 30–40%</strong>；如果一個制度<strong>沒有上限</strong>，
-        大魚就會被持續移除到剩不到兩成<a class="c" href="#s30">S30</a>。台灣的手冊只設下限、不設上限——
-        正好落在這個被點名的缺口裡。所謂「區間限制」（slot limit，只帶走中段、放掉太小與太大的），
-        不是舶來品，而是這套邏輯的<strong>必然下一步</strong>。
+        這正是本研究的起點。現行的新北保育區公告（109 年）寫的是「禁止使用<strong>潛水器材</strong>採捕」，
+        <strong>並沒有「魚槍」二字</strong><a class="c" href="#s21">S21</a>。如果草案新增了魚槍，那就是從
+        「禁止某種<em>裝備</em>」升級為「禁止某種<em>工具的名字</em>」——這是一個質變，需要科學理由來撐。
       </p>
       <div class="todo">
-        <div class="eyebrow">我們自己先攻破自己</div>
+        <div class="eyebrow">誠實聲明</div>
         <p>
-          一個會被科學家當場追問的問題：<strong>slot limit 對台灣的珊瑚礁魚種真的適用嗎？</strong>
-          鸚哥魚、隆頭魚、石斑這類<strong>會性轉變</strong>的魚，大型個體常常是<em>雄魚</em>，
-          「保護大母魚」的邏輯得改寫成「保護繁殖主力」——方向不變，但魚種要分開處理。
-          這一題必須逐種談，不能一條規則套全部。（完整文獻整理是第 2 階段收尾工作，
-          BOFFFF 原始文獻 Hixon 2014、slot 設計 Gwinn 2015 尚待補齊，此處先標明。）
+          草案<strong>原文我們還沒查證到可引用的版本</strong>——負責抓取的程序在中途中斷。上面對草案內容的描述，
+          目前依據的是聯盟的陳述（見專案 <code>mission.md</code>），我們把它標為待查證，會優先補上原文。
+          但無論草案細節如何，一個更根本的問題已經成立：<strong>用「工具名稱」當禁令單位，本身站不站得住？</strong>
         </p>
       </div>
-    </section>
+      <p>
+        我們的立場不是反對保育，而是主張：<strong>管理應該管「行為風險」，不是管「工具名稱」。</strong>
+        而且我們不只反對，還要提出可行的替代方案——那是第二頁的全部內容。
+      </p>
 
-    <section id="method" class="reveal">
-      <div class="depth">−36 m　給署長的那一頁</div>
-      <h2>別人憑什麼敢訂數字，而我們該怎麼誠實地學</h2>
-      <p>
-        我們很清楚一件事，而且要主動說出來：<strong>台灣的魚類體長資料不夠好</strong>——
-        資料庫數字與現場實測有落差、樣本集中在本島。照抄美國或澳洲的數字是不負責任的。
-        <strong>但「資料不足」不等於「只能什麼都不做」</strong>，國際上早有一整套為此設計的方法。
-      </p>
-      <p>
-        Froese 的三指標本身就只需要少量生活史參數<a class="c" href="#s30">S30</a>；還有一系列
-        <strong>只靠體長分布</strong>就能評估族群健康的工具（LBSPR、LBB 等），以及用近緣種推估缺資料魚種的做法。
-        重點不是數字本身，是<strong>一套透明、可被檢驗、資料越少就越保守的程序</strong>。
-      </p>
-      <p>
-        而最關鍵的一張投影片是這個——<strong>成熟的漁業管理，風險評估的單位是「漁法 × 魚種」，不是「工具名稱」。</strong>
-        澳洲的 ERAEF 生態風險評估框架，逐一針對「某種漁法對某個物種」評分<a class="c" href="#s32">S32</a>；
-        它評估的單位就叫「otter trawl 子漁業」——<strong>綁的是行為，不是名字。</strong>
-        新北草案「允許釣魚、單獨全面禁魚槍」，等於宣稱工具名稱本身就是風險——
-        這個主張在國際實務裡找不到對應框架，舉證責任在提案方。
-      </p>
-      <p>
-        我們也不迴避對魚槍不利的證據。禁令方最可能的科學武器是「魚槍者專挑大魚射」——
-        而 2023 年一篇魚槍全球回顧確實提到這種傾向存在，但同時明講<strong>「並非普遍模式」</strong><a class="c" href="#s33">S33</a>。
-        更關鍵的是那篇回顧點出：<strong>自由潛水受限於閉氣深度，深水的大魚天生就有一層庇護</strong>；
-        真正打破這層庇護的是<strong>水肺＋魚槍</strong><a class="c" href="#s34">S34</a>。這正好證明我們的主張——
-        該管的是<strong>行為</strong>（水肺、夜潛、專射巨物），不是<strong>工具的名字</strong>。
-        而台灣現行制度剛好已經擋掉水肺採捕（潛水器漁業證照停發），自潛採捕本就是風險較低的那一端。
-      </p>
-      <div class="doc">
-        <q>一份可信的採捕指引，必須建立在紮實的資源調查與透明的科學程序之上——而這正是我們願意以保育夥伴身分共同建立的東西。</q>
-        <cite>本聯盟立場</cite>
+      <div class="handoff">
+        <div class="eyebrow">接下來</div>
+        <h3>問題清楚了，那該怎麼做？</h3>
+        <p>第二頁：從 BOFFFF 科學、六個國際先例，到給海洋委員會的短中長期落地建議。</p>
+        <a class="go" href="plan.html">前往・短中長期建議 →</a>
       </div>
-    </section>
-
-    <section id="floor" class="reveal">
-      <div class="depth">−40 m　海床</div>
-      <h2>還沒填上的洞</h2>
-      <p>研究紀律的一部分是：查不到就說查不到，不猜。目前掛著的主要缺口：</p>
-      <ul class="gaps">
-        <li><strong>海保法第 14 條的公告發布了嗎？</strong>這是海保署唯一能直接管制一般海域「採捕器具」的工具，自 114/7/1 施行，但查無任何已生效的公告清單。</li>
-        <li><strong>2017 年那份魚槍禁漁區草案，真的沒發布嗎？</strong>屏東縣政府 2024 年上傳過一份同名掃描 PDF，是唯一可能推翻「未實施」推定的文件，需要 OCR 或函詢。</li>
-        <li><strong>原基法第 19 條的「公告之海域」查無公告。</strong>若真的沒公告，原住民在海域的採捕權利基礎其實是懸空的。</li>
-        <li><strong>一個資料矛盾。</strong>漁業署轉載頁把新北馬糞海膽禁捕期寫成到「次年 3/15」，但市府原始公告掃描件是「次年 6/15」——以原始公告為準，中央轉載有誤。這正是「一定要追到原始出處」的活教材。</li>
-      </ul>
-      <p>
-        還有一個時間上的巧合值得記下來：《海洋保育法》的實體條文 114 年 7 月才施行，
-        而<strong>截至目前，一處海洋庇護區都還沒劃設</strong><a class="c" href="#s17">S17</a>。
-        制度剛開機，內容還沒長出來——這是進場的時間窗口。
-      </p>
-      <p>
-        而且法律已經留了一道門：海保法第 11 條規定，庇護區緩衝區內採捕原則上要許可，
-        但<strong>符合主管機關公告之一定種類、數量、方式者，可以免申請</strong><a class="c" href="#s16">S16</a>。
-        一份夠好的「友善採捕」自律指引，如果被官方採認，就能長在這個接口上。
-      </p>
     </section>
 
     <section id="sources">
       <div class="eyebrow">佐證</div>
       <h2>來源</h2>
       <p style="color:var(--ink-soft);font-size:16px">
-        每一筆都附發布機關、條號定位與原文短引，可反查。全數為法規原文、官方公告或主管機關正式函復（Tier 1）。
-        排除社群貼文、論壇、新聞轉述。
+        每筆都附發布機關、條號定位與原文短引，可反查。全數為法規原文、官方公告或主管機關正式函復（Tier 1）。
+        排除社群貼文、論壇、新聞轉述。完整來源總表（含國際文獻）見
+        <a href="https://github.com/liumusicforever/friendly-harvest-research/blob/main/sources/source-registry.csv" style="color:var(--sea)">GitHub registry</a>。
       </p>
       <ol class="src">
-        <li id="s01">
+<li id="s01">
           <div>
             <div class="src-claim">「友善釣魚」的官方定義是場域安全＋環境清潔＋資源永續，不含動物福利。</div>
             <div class="src-detail">
@@ -702,7 +180,7 @@
             </div>
           </div>
         </li>
-        <li id="s02">
+<li id="s02">
           <div>
             <div class="src-claim">方案承認魚槍與潛水屬於休閒採捕方法——全文僅出現這一次。</div>
             <div class="src-detail">
@@ -711,7 +189,7 @@
             </div>
           </div>
         </li>
-        <li id="s03">
+<li id="s03">
           <div>
             <div class="src-claim">方案將採捕方式限縮為釣竿，實質排除魚槍與潛水採捕。</div>
             <div class="src-detail">
@@ -720,7 +198,7 @@
             </div>
           </div>
         </li>
-        <li id="s04">
+<li id="s04">
           <div>
             <div class="src-claim">方案唯一具強制語氣的體長門檻，是幼魚下限。</div>
             <div class="src-detail">
@@ -729,7 +207,7 @@
             </div>
           </div>
         </li>
-        <li id="s05">
+<li id="s05">
           <div>
             <div class="src-claim">友善垂釣魚種清單的欄位是「攜回建議」，值皆為「N 以上」，無上限。</div>
             <div class="src-detail">
@@ -738,7 +216,7 @@
             </div>
           </div>
         </li>
-        <li id="s06">
+<li id="s06">
           <div>
             <div class="src-claim">方案由行政院於民國 109 年 5 月 6 日函核定。</div>
             <div class="src-detail">
@@ -748,7 +226,7 @@
             </div>
           </div>
         </li>
-        <li id="s07">
+<li id="s07">
           <div>
             <div class="src-claim">《漁業法》所稱漁業限於「業」，即營業行為。</div>
             <div class="src-detail">
@@ -758,7 +236,7 @@
             </div>
           </div>
         </li>
-        <li id="s08">
+<li id="s08">
           <div>
             <div class="src-claim">僅「經營漁業」者須取得漁業證照，休閒自用採捕不在其中。</div>
             <div class="src-detail">
@@ -767,7 +245,7 @@
             </div>
           </div>
         </li>
-        <li id="s09">
+<li id="s09">
           <div>
             <div class="src-claim">違反採捕限制公告者，法定刑為三年以下有期徒刑，且處罰對象不限漁業人。</div>
             <div class="src-detail">
@@ -776,7 +254,7 @@
             </div>
           </div>
         </li>
-        <li id="s10">
+<li id="s10">
           <div>
             <div class="src-claim">娛樂漁業漁船上的漁法限竿釣、一支釣、曳繩釣，排除魚槍。</div>
             <div class="src-detail">
@@ -786,7 +264,7 @@
             </div>
           </div>
         </li>
-        <li id="s11">
+<li id="s11">
           <div>
             <div class="src-claim">魚槍在法律上屬於「槍砲」，非經許可不得持有。</div>
             <div class="src-detail">
@@ -796,7 +274,7 @@
             </div>
           </div>
         </li>
-        <li id="s12">
+<li id="s12">
           <div>
             <div class="src-claim">人民得合法申請購置魚槍，每人以二枝為限。</div>
             <div class="src-detail">
@@ -806,7 +284,7 @@
             </div>
           </div>
         </li>
-        <li id="s13">
+<li id="s13">
           <div>
             <div class="src-claim">潛水器漁業自民國 78 年起不再核發新漁業證照，形成事實上的封鎖。</div>
             <div class="src-detail">
@@ -816,7 +294,7 @@
             </div>
           </div>
         </li>
-        <li id="s14">
+<li id="s14">
           <div>
             <div class="src-claim">主管機關函復：自由潛水＋合法魚槍＋自用不販售，不受漁業法第 6 條規範。</div>
             <div class="src-detail">
@@ -826,7 +304,7 @@
             </div>
           </div>
         </li>
-        <li id="s15">
+<li id="s15">
           <div>
             <div class="src-claim">國家公園全區禁止捕捉魚類，但罰鍰上限僅一千元。</div>
             <div class="src-detail">
@@ -836,7 +314,7 @@
             </div>
           </div>
         </li>
-        <li id="s16">
+<li id="s16">
           <div>
             <div class="src-claim">海保法在庇護區緩衝區留有「符合公告條件即免申請許可」的豁免接口。</div>
             <div class="src-detail">
@@ -846,7 +324,7 @@
             </div>
           </div>
         </li>
-        <li id="s17">
+<li id="s17">
           <div>
             <div class="src-claim">海保法實體條文遲至 114 年 7 月 1 日施行，且尚未劃設任何海洋庇護區。</div>
             <div class="src-detail">
@@ -856,7 +334,7 @@
             </div>
           </div>
         </li>
-        <li id="s18">
+<li id="s18">
           <div>
             <div class="src-claim">基隆市對磯釣設有具強制力的 20 公分下限，是台灣少見的例子。</div>
             <div class="src-detail">
@@ -866,7 +344,7 @@
             </div>
           </div>
         </li>
-        <li id="s19">
+<li id="s19">
           <div>
             <div class="src-claim">連江縣的 13 項尺寸規定全數為下限，措辭一律為「X 公分（含）以下限捕」。</div>
             <div class="src-detail">
@@ -875,7 +353,7 @@
             </div>
           </div>
         </li>
-        <li id="s20">
+<li id="s20">
           <div>
             <div class="src-claim">連江縣是全台唯一以「魚槍」為規範對象的縣級禁令。</div>
             <div class="src-detail">
@@ -884,7 +362,7 @@
             </div>
           </div>
         </li>
-        <li id="s21">
+<li id="s21">
           <div>
             <div class="src-claim">新北市保育區設珊瑚礁魚類 20 公分下限，並禁止以潛水器材採捕。</div>
             <div class="src-detail">
@@ -893,7 +371,7 @@
             </div>
           </div>
         </li>
-        <li id="s22">
+<li id="s22">
           <div>
             <div class="src-claim">花蓮縣保育區僅設龍蝦與九孔兩項下限。</div>
             <div class="src-detail">
@@ -902,7 +380,7 @@
             </div>
           </div>
         </li>
-        <li id="s23">
+<li id="s23">
           <div>
             <div class="src-claim">臺南市完全沒有尺寸規定：「體長」在全市法規查詢系統命中 0 次。</div>
             <div class="src-detail">
@@ -910,7 +388,7 @@
             </div>
           </div>
         </li>
-        <li id="s24">
+<li id="s24">
           <div>
             <div class="src-claim">金門縣無任何體長、重量或數量規定，官方彙整表已窮舉。</div>
             <div class="src-detail">
@@ -918,7 +396,7 @@
             </div>
           </div>
         </li>
-        <li id="s25">
+<li id="s25">
           <div>
             <div class="src-claim">宜蘭東澳灣保育區永續利用區明文點名禁止魚槍。</div>
             <div class="src-detail">
@@ -927,7 +405,7 @@
             </div>
           </div>
         </li>
-        <li id="s26">
+<li id="s26">
           <div>
             <div class="src-claim">現行《水域遊憩活動管理辦法》潛水專節已無魚槍條文。</div>
             <div class="src-detail">
@@ -936,7 +414,7 @@
             </div>
           </div>
         </li>
-        <li id="s27">
+<li id="s27">
           <div>
             <div class="src-claim">2017 年預告的全國魚槍禁漁區措施，查無發布施行紀錄。</div>
             <div class="src-detail">
@@ -945,7 +423,7 @@
             </div>
           </div>
         </li>
-        <li id="s28">
+<li id="s28">
           <div>
             <div class="src-claim">原住民基於傳統文化或非營利自用之獵捕，不受野保法部分限制。</div>
             <div class="src-detail">
@@ -955,7 +433,7 @@
             </div>
           </div>
         </li>
-        <li id="s29">
+<li id="s29">
           <div>
             <div class="src-claim">台灣現有 71 處海洋保護區，占相關水域 8.39%。</div>
             <div class="src-detail">
@@ -964,114 +442,17 @@
             </div>
           </div>
         </li>
-        <li id="s30">
-          <div>
-            <div class="src-claim">Froese 三指標：讓魚繁殖、讓魚長到最適體長、讓大型產卵魚活著；無上限時大型個體應佔 30–40%。</div>
-            <div class="src-detail">
-              Froese, R. (2004)・Fish and Fisheries 5:86–91・同儕審查期刊
-              <div class="src-quote">「percentage of 'mega-spawners' in catch, with 0% as target, and 30–40% as representative of reasonable stock structure if no upper size limit exists」</div>
-              <a href="https://doi.org/10.1111/j.1467-2979.2004.00144.x">doi.org ・ 10.1111/j.1467-2979.2004.00144.x</a>
-            </div>
-          </div>
-        </li>
-        <li id="s31">
-          <div>
-            <div class="src-claim">釣魚放流致死率整合分析：53 篇研究、中位數 11%、平均 18%、範圍 0–95%，越深水越高。</div>
-            <div class="src-detail">
-              Bartholomew, A. &amp; Bohnsack, J.A. (2005)・Reviews in Fish Biology and Fisheries 15:129–154・同儕審查期刊
-              <div class="src-quote">「A meta-analysis of combined data (n=274) showed a skewed distribution of release mortality (median 11%, mean 18%, range 0–95%)」</div>
-              <a href="https://doi.org/10.1007/s11160-005-2175-1">doi.org ・ 10.1007/s11160-005-2175-1</a>
-            </div>
-          </div>
-        </li>
-        <li id="s32">
-          <div>
-            <div class="src-claim">ERAEF 生態風險評估的單位是「漁法子漁業 × 物種」，逐一評分——依行為/漁法而非工具名稱管理的現成制度。</div>
-            <div class="src-detail">
-              Hobday et al. (2011) Fisheries Research 108:372–384；Sporcic et al. (2021) AFMA ERA 報告
-              <div class="src-quote">「Ecological Risk Assessment for the Effects of Fishing… (Commonwealth Trawl Sector): Otter trawl Sub-fishery」</div>
-              <a href="https://doi.org/10.1016/j.fishres.2011.01.013">doi.org ・ 10.1016/j.fishres.2011.01.013</a>
-            </div>
-          </div>
-        </li>
-        <li id="s33">
-          <div>
-            <div class="src-claim">魚槍全球回顧：魚槍者「可能」偏好射大型個體，但明講「並非普遍模式」；並呼籲量身管理而非禁止。</div>
-            <div class="src-detail">
-              Sbragaglia et al. (2023)・Reviews in Fish Biology and Fisheries・同儕審查期刊
-              <div class="src-quote">「can deliberately target larger individuals of exploited populations, this is not a generalizable pattern」</div>
-              <a href="https://doi.org/10.1007/s11160-023-09790-7">doi.org ・ 10.1007/s11160-023-09790-7</a>
-            </div>
-          </div>
-        </li>
-        <li id="s34">
-          <div>
-            <div class="src-claim">自由潛水受閉氣深度限制，深水魚有天然庇護；打破這層庇護的是水肺——風險來自行為，不是工具。</div>
-            <div class="src-detail">
-              Sbragaglia et al. (2023) 引 Lindfield et al. (2014) PLOS ONE
-              <div class="src-quote">「the selectivity patterns of spearfishing may differ from other fishing methods because of the depth limitations of spearfishers, especially in freediving」</div>
-              <a href="https://doi.org/10.1371/journal.pone.0092628">doi.org ・ 10.1371/journal.pone.0092628</a>
-            </div>
-          </div>
-        </li>
       </ol>
-
       <footer>
-        研究進度：第 1 階段（台灣基線）事實查證完成；科學骨幹（Froese 三指標、放流致死率、ERAEF、魚槍全球回顧）已補上同儕審查文獻。<br>
-        仍在進行：各國體長上限／slot 的法規逐條整理（美、澳、沖繩、地中海原始檔案已下載約 400 份，尚待抽引原文）；BOFFFF 原始文獻（Hixon 2014）、slot 設計（Gwinn 2015）待補。<br>
-        資料紀律：所有主張須可回溯至法規原文、官方公告、主管機關函復或同儕審查文獻；查不到即記為缺口，不臆測。<br>
+        研究進度：第 1 階段（台灣基線）事實查證完成、審閱中。<br>
+        本頁聚焦國內現況與問題；科學論證、國際先例與落地建議見<a href="plan.html" style="color:var(--sea)">第二頁</a>。<br>
+        資料紀律：所有主張須可回溯至法規原文、官方公告或主管機關函復；查不到即記為缺口，不臆測。<br>
         原始研究檔案、來源總表與素材快照全部公開於 <a href="https://github.com/liumusicforever/friendly-harvest-research" style="color:var(--sea)">GitHub ・ friendly-harvest-research</a>。
       </footer>
     </section>
   </main>
 </div>
 
-<script>
-  const ticks = [...document.querySelectorAll('.tick')];
-  const targets = ticks.map(t => document.querySelector(t.getAttribute('href'))).filter(Boolean);
-
-  const spy = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const i = targets.indexOf(e.target);
-      ticks.forEach((t, n) => t.classList.toggle('on', n === i));
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  targets.forEach(t => spy.observe(t));
-
-  const rev = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); rev.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px' });
-  document.querySelectorAll('.reveal').forEach(el => rev.observe(el));
-
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', ev => {
-      const el = document.querySelector(a.getAttribute('href'));
-      if (!el) return;
-      ev.preventDefault();
-      el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-      history.replaceState(null, '', a.getAttribute('href'));
-    });
-  });
-</script>
-
-<script>
-(function(){
-  var btn=document.querySelector('.theme-toggle');
-  var root=document.documentElement;
-  function apply(t){ if(t){root.setAttribute('data-theme',t);} else {root.removeAttribute('data-theme');} }
-  var saved=null; try{saved=localStorage.getItem('fh-theme');}catch(e){}
-  if(saved) apply(saved);
-  btn.addEventListener('click',function(){
-    var cur=root.getAttribute('data-theme');
-    var sysDark=matchMedia('(prefers-color-scheme: dark)').matches;
-    var next = cur ? (cur==='dark'?'light':'dark') : (sysDark?'light':'dark');
-    apply(next);
-    try{localStorage.setItem('fh-theme',next);}catch(e){}
-  });
-})();
-</script>
+<script src="app.js"></script>
 </body>
 </html>
