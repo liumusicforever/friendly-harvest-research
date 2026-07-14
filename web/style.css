@@ -454,3 +454,23 @@
     font-size:14.5px;color:var(--ink-soft);line-height:1.65}
   .casestudy .honest b{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--ink-faint);
     text-transform:uppercase;display:block;margin-bottom:4px}
+
+  /* ---- concept primer (glossary) ---- */
+  .terms{display:flex;flex-direction:column;gap:0;margin:26px 0}
+  .term{padding:20px 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:200px 1fr;gap:6px 28px}
+  .term:last-child{border-bottom:1px solid var(--rule)}
+  .term .t-name{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--ink);line-height:1.35}
+  .term .t-name .en{display:block;font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.04em;color:var(--ink-faint);margin-top:3px;text-transform:none}
+  .term .t-body{font-size:15.5px;line-height:1.75;color:var(--ink-soft)}
+  .term .t-body strong{color:var(--ink)}
+  .term .t-analogy{margin-top:8px;padding-left:14px;border-left:2px solid var(--sea);color:var(--ink-faint);font-size:14.5px}
+  @media (max-width:620px){.term{grid-template-columns:1fr;gap:2px}}
+
+  /* ---- toolbox comparison ---- */
+  .toolbox{overflow-x:auto;margin:26px 0}
+  .toolbox table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+  .toolbox th,.toolbox td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.6}
+  .toolbox thead th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);font-weight:400;border-bottom:1px solid var(--line)}
+  .toolbox tbody th{font-weight:600;color:var(--ink);white-space:nowrap;font-size:15px}
+  .toolbox .tw{color:var(--accent);font-family:var(--mono);font-size:12px}
+  .toolbox tr.hi td,.toolbox tr.hi th{background:var(--sea-dim)}
