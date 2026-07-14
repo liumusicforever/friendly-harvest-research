@@ -9,3 +9,4 @@
 - 新增 `00_framework/mission.md`：任務聲明（新北 2026/06/17 草案、行為風險 vs 工具名稱、7/22 拜會海保署）。
 - 第 1 階段（台灣基線）四路查證完成，報告留檔 `reports/2026-07-14_phase1-baseline.html`。
 - 啟動第 2–4 階段七路查證（新北草案／BOFFFF 科學／美國／澳紐／沖繩地中海／魚槍文獻／資料不足決策法）。
+- 頁2 國際先例擴寫為逐案深度分析（導火線→科學→決策程序→現況→對台灣）；登錄決策基礎來源 S41-S45（red drum escapement/SSBR、Barramundi RIS+protandry、沖繩正面表列、Goliath 三十年禁捕重啟）。

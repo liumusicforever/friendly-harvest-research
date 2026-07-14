@@ -433,3 +433,24 @@
   .case .flag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--sea)}
   .case .num{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--ink);line-height:1.15}
   .case p{margin:0;font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+
+  /* ---- case study (deep analysis, plan page) ---- */
+  .casestudy{margin:22px 0;padding:24px 26px;background:var(--surface);border:1px solid var(--line);
+    border-radius:4px;box-shadow:var(--shadow)}
+  .casestudy>.cs-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+  .casestudy .cs-flag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sea)}
+  .casestudy .cs-title{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.3;margin:2px 0 14px;text-wrap:balance}
+  .casestudy dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:0}
+  .casestudy dt{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--accent);
+    padding:11px 16px 11px 0;border-top:1px solid var(--rule);white-space:nowrap}
+  .casestudy dd{margin:0;padding:11px 0;border-top:1px solid var(--rule);font-size:15.5px;line-height:1.72;color:var(--ink-soft)}
+  .casestudy dd strong{color:var(--ink)}
+  .casestudy dt.take{color:var(--sea)}
+  .casestudy dd.take{color:var(--ink);font-weight:500}
+  @media (max-width:620px){.casestudy dl{grid-template-columns:1fr;gap:0}
+    .casestudy dt{border-top:1px solid var(--rule);padding-bottom:0}
+    .casestudy dd{padding-top:4px;border-top:0}}
+  .casestudy .honest{margin-top:14px;padding:12px 15px;border:1px dashed var(--line);border-radius:3px;
+    font-size:14.5px;color:var(--ink-soft);line-height:1.65}
+  .casestudy .honest b{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--ink-faint);
+    text-transform:uppercase;display:block;margin-bottom:4px}
