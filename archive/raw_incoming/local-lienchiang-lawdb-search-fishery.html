@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- 響應式網頁設定：若後端設定不開啟響應式網頁效果，則不顯示以下這一行 -->
+    <meta id="ctl00_RWDSetup" name="viewport" content="width=590" /><title>
+	連江縣政府主管法規共用系統-整合查詢結果
+</title>
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <![endif]-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" /><link href="css/bootstrap-icons.min.css" rel="stylesheet" type="text/css" /><link href="css/layout.css" rel="stylesheet" type="text/css" media="screen" /><link href="css/table.css" rel="stylesheet" type="text/css" media="screen" />
+    <!-- 網站樣式設定：依據後端設定樣式編號，讀取對應的CSS檔 -->
+    <link id="ctl00_TemplateID" href="/css/02.css" rel="stylesheet" type="text/css" media="all" /><link href="css/printweb.css" rel="stylesheet" type="text/css" media="print" />
+    <!-- 網頁背景圖設定：若後端自行上傳背景圖，則顯示以下這一行 -->
+    
+
+    <script src="/js/jquery-3.7.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            //避免XFS攻擊
+            if (top != self) { top.location = self.location; }
+            //無障礙需求
+            //$("pre").attr("title", "內容");
+        });
+    </script>
+    <noscript><span style="color: #fff;">您的瀏覽器不支援JavaScript功能，若網頁功能無法正常使用時，請開啟瀏覽器JavaScript狀態</span></noscript>
+    
+    <link href="css/style_dgpa.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form name="aspnetForm" method="post" action="./SearchAllResultList.aspx?KW=%u6f01%u696d" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="D435B16E" />
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+        
+        <a href="#content" id="AM" class="sr-only sr-only-focusable A1">跳到主要內容區塊</a>
+        <header>
+            <div class="navbar navbar-expand-md navbar-default">
+                <div id="ctl00_h1title" class="nav-system">主管法規查詢系統</div>
+                <div class="header-con">
+                    <!-- 上方選單 -->
+                    <div class="collapse navbar-collapse header-nav">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#U" id="AU" name="U" title="功能區塊" accesskey="U">:::</a></li>
+
+                            <li><a href="SiteMapPage.aspx">網站導覽</a></li>
+                            
+                            <li id="ctl00_Manual_All"><a href="/UseManual/使用手冊20171020.pdf" title="下載使用手冊.pdf">使用手冊</a></li>
+                            
+                            
+                            <li><a href="index.aspx">回首頁</a></li>
+                            
+                            
+                        </ul>
+                    </div>
+                    <div class="navbar-header">
+						<ul class="navbar-nav d-md-none m-menu">
+                            <li class="nav-item text-nowrap">
+                                <button type="button" class="navbar-toggler myNavbar" data-bs-toggle="collapse" data-bs-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="功能選單">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            </li>
+                        </ul>
+                        <!-- 領用機關Logo 圖片-->
+                        <h1 class="logo">
+                            <a href="index.aspx" id="ctl00_aUCName" title="連江縣政府主管法規查詢系統：回首頁">
+                                <img src="ImageHandler.ashx?Field=Logo" id="ctl00_imgUCName" width="320" height="90" alt="連江縣政府logo：回主管法規查詢系統首頁" />
+                            </a>
+                        </h1>
+                        <!-- 系統名稱Banner -->
+                        <div class="sys-name">
+                            <img src="images/logo_system.png" id="ctl00_imglogo" width="300" height="90" alt="主管法規查詢系統 Laws and Regulations Retrieving System" />
+                        </div>
+                        <!-- 上方整合查詢 -->
+                        <div class="collapse navbar-collapse search-box">
+                            <div class="navbar-form" role="search">
+                                <div class="input-group">
+                                    <label for="keyword1" class="sr-only">請輸入關鍵字</label>
+                                    <input id="keyword1" type="text" class="form-control" accesskey="S" placeholder="請輸入關鍵字">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" onclick="GlobalCheckForm1();return false;">整合查詢</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+						<ul class="navbar-nav d-md-none m-search">
+                            <li class="nav-item text-nowrap">
+                                <button type="button" class="navbar-toggler mySearch" data-bs-toggle="collapse" data-bs-target="#mySearch" aria-controls="mySearch" aria-expanded="false" aria-label="查詢功能">
+                                    <span class="bi bi-search"></span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- myNavbar 主選單 -->
+                <nav class="collapse navbar-collapse menu" id="myNavbar" aria-label="主要功能選單">
+                    <div class="menu-con">
+                        <ul>
+                            <li class="active"><a href="index.aspx">最新訊息</a></li>
+                            <li><a href="LawCategoryMain.aspx?type=M" id="hlLawCategory">法規體系</a></li>
+                            <li><a href="LawQuery.aspx">法規檢索</a></li>
+                            <!-- 人事行政總處客制 -->
+                            <li></li>
+                            <!-- 環保署客制 -->
+                            <li></li>
+                            
+                            <li><a href="DraftForum.aspx">草案預告</a></li>
+                            <li><a href="WebList.aspx">相關網站</a></li>
+                            <!-- 小螢幕才會顯示 -->
+                            <li class="topmenu visible-xs"><a href="SiteMapPage.aspx">網站導覽</a></li>
+                            
+                            <li class="topmenu visible-xs"><a href="/UseManual/使用手冊20171020.pdf" title="下載使用手冊.pdf">使用手冊</a></li>
+                            <li class="topmenu visible-xs"><a href="index.aspx">回首頁</a></li>
+                            <li id="ctl00_Manual_Eng_mobile" class="topmenu visible-xs"><a href="EngNewsList.aspx">English</a></li>
+                            
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </nav>
+                <!-- mySearch 整合查詢 小螢幕顯示-->
+                <div class="menu visible-xs" role="navigation">
+                    <div class="collapse navbar-collapse" id="mySearch">
+                        <div class="navbar-form" role="search">
+                            <div class="input-group">
+                                <label for="keyword2" class="sr-only">請輸入關鍵字</label>
+                                <input id="keyword2" type="text" class="form-control" placeholder="請輸入關鍵字">
+                                <button type="button" class="btn btn-default" onclick="GlobalCheckForm2();return false;">
+                                    <i class="bi bi-search"><span class="sr-only">整合查詢</span></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主要內容 -->
+        <div class="container-fluid con-bg">
+            <div class="content-con" id="content" role="main">
+                <a href="#C" id="AC" name="C" title="內容區塊" accesskey="C">:::</a>
+                
+
+    <ol class="breadcrumb">
+        現在位置：
+        <li>整合查詢結果</li>
+    </ol>
+    <div class="text-con">
+        <div class="text-title">
+            <h2><i class="bi bi-geo-alt-fill"></i>整合查詢結果</h2>
+        </div>
+        <div role="tabpanel">
+            <!-- Nav tabs -->
+            <ul id="ctl00_cp_content_ulSearchAllResultCount" class="nav myTab" role="navigation">
+                
+            <li class="active"><a href="SearchAllResultList.aspx?KW=%e6%bc%81%e6%a5%ad&type=B">法規查詢<span class="badge">8</span></a></li><li><a href="SearchAllResultList.aspx?KW=%e6%bc%81%e6%a5%ad&type=D">法規草案<span class="badge">0</span></a></li></ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                
+                
+                
+                <!-- news end-->
+                
+                        <table class="table table-hover tab-list tab-result">
+                            <thead>
+                                <tr>
+                                    <th width="1%">序</th>
+                                    <th width="6%">資料日期</th>
+                                    <th>法規名稱</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    
+                        <tr>
+                            <td width="1%">
+                                1.</td>
+                            <td width="6%">
+                                115.02.26</td>
+                            <td colspan="2"><a id="ctl00_cp_content_rptBList_ctl01_hlkLawName" href="LawContent.aspx?id=GL000562&amp;kw=%e6%bc%81%e6%a5%ad">連江縣漁港基本設施使用管理費收費類目及費率標準</a>
+                                <div id="ctl00_cp_content_rptBList_ctl01_divHLawName"></div>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td width="1%">
+                                2.</td>
+                            <td width="6%">
+                                115.01.26</td>
+                            <td colspan="2"><a id="ctl00_cp_content_rptBList_ctl02_hlkLawName" href="LawContent.aspx?id=GL000658&amp;kw=%e6%bc%81%e6%a5%ad">連江縣 65 歲以上長者赴大坵島交通船補助實施要點</a>
+                                <div id="ctl00_cp_content_rptBList_ctl02_divHLawName"></div>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td width="1%">
+                                3.</td>
+                            <td width="6%">
+                                113.05.10</td>
+                            <td colspan="2"><i id="ctl00_cp_content_rptBList_ctl03_spanLawFilesRela" class="bi bi-paperclip"></i><a id="ctl00_cp_content_rptBList_ctl03_hlkLawName" href="LawContent.aspx?id=GL000574&amp;kw=%e6%bc%81%e6%a5%ad">連江縣漁船航行至大陸地區許可規定</a>
+                                
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td width="1%">
+                                4.</td>
+                            <td width="6%">
+                                112.06.30</td>
+                            <td colspan="2"><a id="ctl00_cp_content_rptBList_ctl04_hlkLawName" href="LawContent.aspx?id=GL000259&amp;kw=%e6%bc%81%e6%a5%ad">連江縣殯葬管理自治條例</a>
+                                <div id="ctl00_cp_content_rptBList_ctl04_divHLawName"></div>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td width="1%">
+                                5.</td>
+                            <td width="6%">
+                                112.06.01</td>
+                            <td colspan="2"><a id="ctl00_cp_content_rptBList_ctl05_hlkLawName" href="LawContent.aspx?id=GL000537&amp;kw=%e6%bc%81%e6%a5%ad">連江縣榮譽縣民證贈予要點</a>
+                                
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td width="1%">
+                                6.</td>
+                            <td width="6%">
+                                109.05.04</td>
+                            <td colspan="2"><a id="ctl00_cp_content_rptBList_ctl06_hlkLawName" href="LawContent.aspx?id=GL000447&amp;kw=%e6%bc%81%e6%a5%ad">連江縣水產品證明標章之申請及使用管理辦法</a>
+                                <div id="ctl00_cp_content_rptBList_ctl06_divHLawName"></div>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td width="1%">
+                                7.</td>
+                            <td width="6%">
+                                107.11.23</td>
+                            <td colspan="2"><a id="ctl00_cp_content_rptBList_ctl07_hlkLawName" href="LawContent.aspx?id=GL000108&amp;kw=%e6%bc%81%e6%a5%ad">連江縣農業災害救助自治條例</a>
+                                <div id="ctl00_cp_content_rptBList_ctl07_divHLawName"></div>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td width="1%">
+                                8.</td>
+                            <td width="6%">
+                                106.05.09</td>
+                            <td colspan="2"><a id="ctl00_cp_content_rptBList_ctl08_hlkLawName" href="LawContent.aspx?id=GL000444&amp;kw=%e6%bc%81%e6%a5%ad">連江縣違章建築分類分期查報拆除計畫</a>
+                                
+                            </td>
+                        </tr>
+                    
+                        </tbody>
+                        </table>
+                        <!--- Page --->
+                        <div id="ctl00_cp_content_rptBList_ctl09_PagerButtom_navPager" class="pageZone">
+    
+</div>
+<script>
+    function changeSize(size) {
+        var size = document.getElementById('ctl00_cp_content_rptBList_ctl09_PagerButtom_ddlPage').value;
+        var regexPage = /[&?\??]page=[0-9]+&?/;
+        var regexSize = /[&?\??]size=[0-9]+&?/;
+        var resultURL = location.href.replace(regexPage, "").replace(regexSize, "");
+        if (resultURL.indexOf("?") > -1) {
+            if (isLocalUrl(resultURL))
+                window.open(encodeURI(resultURL) + "&size=" + encodeURIComponent(size));
+            if (IsSafeUrl(resultURL))
+                window.open(encodeURI(resultURL) + "&size=" + encodeURIComponent(size));
+        } else {
+            if (isLocalUrl(resultURL))
+                window.open(encodeURI(resultURL) + "?size=" + encodeURIComponent(size));
+            if (IsSafeUrl(resultURL))
+                window.open(encodeURI(resultURL) + "?size=" + encodeURIComponent(size));
+        }
+    }
+
+    function isLocalUrl(url) {
+        try {
+            const base = window.location.origin;
+            const targetUrl = new URL(url, base);
+            return targetUrl.origin === base;
+        } catch (e) {
+            return false;
+        }
+    }
+
+    function IsSafeUrl(url) {
+        const allowedDomains = [window.location.hostname];
+        const targetUrl = new URL(url);
+
+        return allowedDomains.includes(targetUrl.hostname);
+    }
+</script>
+
+                    
+                <!-- law end-->
+                
+                <!-- englaw end-->
+                
+                <!-- draft end-->
+                
+                <!-- legal end-->
+                  
+                <!-- FExecutive end-->
+            </div>
+        </div>
+    </div>
+
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- 主要內容結束 -->
+
+        <footer>
+
+            
+                    <div class="footer-con">
+                        <a href="#Z" id="AF" name="Z" title="網站資訊區塊" accesskey="Z">:::</a>
+                        <div class="clearfix"></div>
+                        
+                        <ul class="address">
+                            <li>
+                                連江縣政府：20941 連江縣南竿鄉介壽村76號</li>
+                            <li>電話總機：
+                                0836-23367
+                                傳真電話：0836-25139</li>
+                            <li>系統版本：<span id="ctl00_lblVersionDate">114.11.28</span></li>
+                            <li>系統更新日期：<span id="ctl00_lblUpdateDate">115.01.08</span></li>
+                            
+                        </ul>
+
+                        <ul class="logo-box">
+                            
+                            
+                            
+                        </ul>
+                        <div id="ctl00_divBrowsingPeople" class="visitors">瀏覽人數：3,635,360</div>
+                    </div>
+                
+            <p id="gotop"><a role="button" href="#">回上方</a></p>
+        </footer>
+    </form>
+</body>
+</html>
+<script src="/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/js/app.js" type="text/javascript"></script>
+<script src="/js/FYLS.js"></script>
+<script type="text/javascript">
+    $(function () {
+        ChangeFunUrl();
+        $(window).resize(function () {
+            ChangeFunUrl();
+        });
+    });
+    function ChangeFunUrl() {
+        //功能頁面切換：依據頁面寬度切換功能
+        if ($(window).width() < 767) {
+            $("#hlLawCategory").attr("href", "LawCategoryMain.aspx?type=M");
+        }
+        else {
+            $("#hlLawCategory").attr("href", "LawCategoryMain.aspx");
+        }
+    }
+    function QueryString(name) {
+        var AllVars = window.location.search.substring(1);
+        var Vars = AllVars.split("&");
+        for (i = 0; i < Vars.length; i++) {
+            var Var = Vars[i].split("=");
+            if (Var[0] == name) return Var[1];
+        }
+        return "";
+    }
+    function GlobalCheckForm1() {
+        var keyword = $.trim($("#keyword1").val());
+        //全文檢索字詞不得為空值
+        if (keyword == "") {
+            alert("請輸入「檢索字詞」！");
+            return false;
+        }
+        //全文檢索字詞格式綜合判斷
+        if (keyword != "" && !validKeys(keyword)) {
+            alert("檢索字詞格式錯誤！請檢查後重新輸入！");
+            return false;
+        }
+        if (keyword != "" && isFullWidthText(keyword)) {
+            alert("檢索字詞格式錯誤！請檢查後重新輸入！")
+            return false;
+        }
+        window.open("SearchAllResultList.aspx?KW=" + encodeURIComponent(keyword));
+    }
+    function isFullWidthText(text) {
+        for (let i = 0; i < text.length; i++) {
+            const charCode = text.charCodeAt(i);
+            if ((charCode >= 0xFF01 && charCode <= 0xFF60) ||
+                (charCode >= 0xFFE0 && charCode <= 0xFFE6)) {
+                continue;
+            }
+            return false;
+        }
+        return true;
+    }
+    function GlobalCheckForm2() {
+        var keyword = $.trim($("#keyword2").val());
+        //全文檢索字詞不得為空值
+        if (keyword == "") {
+            alert("請輸入「檢索字詞」！");
+            return false;
+        }
+        //全文檢索字詞格式綜合判斷
+        if (keyword != "" && !validKeys(keyword)) {
+            alert("檢索字詞格式錯誤！請檢查後重新輸入！");
+            return false;
+        }
+        if (keyword != "" && isFullWidthText(keyword)) {
+            alert("檢索字詞格式錯誤！請檢查後重新輸入！")
+            return false;
+        }
+        window.open("SearchAllResultList.aspx?KW=" + encodeURIComponent(keyword));
+    }
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(document).on("keydown", function (e) {
+            if (e.key === "Enter") {
+                var active = document.activeElement;
+                console.log("目前焦點元素：", active.id);
+                if (active && active.id === "keyword1") {
+                    // 使用者焦點在 Master 的檢索輸入欄位，才觸發整合查詢
+                    GlobalCheckForm1();
+                    e.preventDefault();  // 阻止預設送出表單
+                    return false;
+                }
+                if (active && active.id === "keyword2") {
+                    // 使用者焦點在 Master 的檢索輸入欄位，才觸發整合查詢
+                    GlobalCheckForm2();
+                    e.preventDefault();  // 阻止預設送出表單
+                    return false;
+                }
+            }
+        });
+    });
+</script>
+
+

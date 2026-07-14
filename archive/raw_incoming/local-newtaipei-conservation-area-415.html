@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="zh-TW"> <!--<![endif]-->
+
+<head>
+<meta charset="utf-8">
+<title>新北市政府漁業及漁港事業管理處 > 資源保育 > 永續漁業 > 保育區 > 瑞芳保育區</title>
+
+	<link rel="shortcut icon" href="../favicon.ico"/>
+	<link rel="bookmark" href="../favicon.ico"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<!-- beginRow meta_data -->
+  	<meta name="DC.Title" content="" />
+	<meta name="DC.Creator" content="" />
+	<meta name="DC.Subject" content="" />
+	<meta name="DC.Description" content="" />
+	<meta name="DC.Contributor" content="" />
+	<meta name="DC.Type" content="" />
+	<meta name="DC.Format" content="" />
+	<meta name="DC.Source" content="" />
+	<meta name="DC.Language" content="" />
+	<meta name="DC.coverage.t.min" content="0000-00-00 00:00:00" />
+	<meta name="DC.coverage.t.max" content="0000-00-00 00:00:00" />
+	<meta name="DC.Publisher" content="" />
+	<meta name="DC.Date" content="0000-00-00 00:00:00" />
+	<meta name="DC.Identifier" content="" />
+	<meta name="DC.Relation" content="" />
+	<meta name="DC.Rights" content="" />
+	<meta name="Category.Theme" content="" />
+	<meta name="Category.Cake" content="" />
+	
+	<meta name="Category.Service" content="" />
+	<meta name="Keywords" content="" />
+	<!-- endRow meta_data -->
+  <script language="javascript">
+
+	var _CurrentURL		= '/cht/index.php?act=index';
+	var _RequestURI		= '/cht/index.php?code=list&flag=detail&ids=143&article_id=415';
+	var _PHP_SELF		= '/cht/index.php';
+	var SYS_BO		= '%SYS_BO%';
+	var OrderURL		= '/cht/index.php?code=list&flag=detail&ids=143&article_id=415'; 
+	var CurOrderField	= '';
+	var CurOrderMode	= '';
+	
+	var lang_notnull	= '不能為空';
+	var lang_neednumeric	= '只能輸入數字';
+	var lang_needfloat	= '必須輸入整數或小數';
+	var lang_needemail	= '不正確的EMAIL地址格式';
+	var lang_uid		= '不正確的身份證格式';
+	var lang_neededate	= '不正確的日期格式';
+	var lang_nosel		= '請先選擇要管理的資料';
+	var lang_opt_confirm	= '是否確認對選定項目進行此管理?';
+	var lang_logout_confirm	= '是否確定離開管理系統?';
+	var lang_delete_confirm	= '是否確定要刪除此項目?';
+	var lang_minlength	= '最少字符數為: ';
+	var lang_maxlength	= '最大字符數為: ';
+	var lang_err_fileformat	= '上傳了無效的檔案格式, 只能上傳: %s 類型的檔案';
+
+  </script>
+<script>
+										(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+										(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+										m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+										})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+										ga('create', 'UA-111559196-1', 'auto');
+										ga('send', 'pageview');
+									</script>
+<script type="text/javascript" src="../upload/cht/assets/vendor/jquery/jquery.min.js"></script>
+<!--<script language="javascript" src="../js/count_checkbox.js"></script>-->
+<script language="javascript" src="../js/common.js"></script>
+<!--<script type="text/javascript" src="../js/swfobject.js"></script>-->
+<!--<script type="text/javascript" src="../js/swapimg.js"></script>-->
+
+
+<script language="javascript">
+var calendar = null;
+
+	function selected(cal, date) {
+		cal.sel.value = date;
+	}
+
+	function closeHandler(cal) {
+		cal.hide();
+		Calendar.removeEvent(document, "mousedown", checkCalendar);
+	}
+function checkCalendar(ev) {
+		var el = Calendar.is_ie ? Calendar.getElement(ev) : Calendar.getTargetElement(ev);
+
+		for (; el != null; el = el.parentNode)
+		if (el == calendar.element || el.tagName == "A") break;
+		if (el == null) {
+			calendar.callCloseHandler();
+			Calendar.stopEvent(ev);
+		}
+	}
+
+	function showCalendar(id) {
+		var el = document.getElementById(id);
+		var cal = new Calendar(true, null, selected, closeHandler);
+
+		calendar = cal;	
+		cal.setRange(1900, 2070);
+		calendar.create();
+
+		calendar.sel = el;
+		calendar.showAtElement(el);
+
+		Calendar.addEvent(document, "mousedown", checkCalendar);
+	}
+
+</script>
+<!--  -->
+</head>
+
+<body topmargin="0" leftmargin="0">
+
+<!-- Web Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%257CShadows+Into+Light"   integrity="sha384-8A6lJut/HXO+ZaBNFiDzKdLlP3x6qW2uG5er2gTYBgWE17JLviwGZPUl75lq5e9N"  crossorigin="anonymous">
+<!-- Vendor CSS -->
+<link rel="stylesheet" href="../upload/cht/assets/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../upload/cht/assets/vendor/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="../upload/cht/assets/css/new-icon-styles.css">
+<link rel="stylesheet" href="../upload/cht/assets/vendor/simple-line-icons/css/simple-line-icons.min.css">
+<link rel="stylesheet" href="../upload/cht/assets/vendor/owl.carousel/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="../upload/cht/assets/vendor/owl.carousel/assets/owl.theme.default.min.css">
+<link rel="stylesheet" href="../upload/cht/assets/vendor/magnific-popup/magnific-popup.min.css">
+
+<!-- Theme CSS -->
+<link rel="stylesheet" href="../upload/cht/assets/css/theme.css">
+<link rel="stylesheet" href="../upload/cht/assets/css/theme-elements.css">
+<link rel="stylesheet" href="../upload/cht/assets/css/theme-blog.css">
+<link rel="stylesheet" href="../upload/cht/assets/css/theme-shop.css">
+<link rel="stylesheet" href="../upload/cht/assets/css/theme-animate.css">
+
+<!-- DatePicker CSS -->
+<link rel="stylesheet" href="../upload/cht/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="../upload/cht/assets/css/jqcloud.css" type="text/css" />
+<!--timelinr css-->
+<link rel="stylesheet" href="../upload/cht/assets/vendor/timelinr/css/styles.css">
+
+<!-- Skin CSS -->
+<link rel="stylesheet" href="../upload/cht/assets/css/skins/default.css">
+
+<!-- Theme Custom CSS -->
+<link rel="stylesheet" href="../upload/cht/assets/css/custom.css">
+
+
+<!-- calendar -->
+<link rel="stylesheet" href="../upload/cht/assets/vendor/fullcalendar/fullcalendar.css?V20240328?V20240328" />
+<link rel="stylesheet" href="../upload/cht/assets/vendor/fullcalendar/fullcalendar.print.css" media="print" />
+<style>.share li:nth-child(5) a { background-color: #4ecd00;}</style>
+<noscript>
+ <link rel="stylesheet" href="../upload/cht/assets/css/noscript.css"> 
+</noscript>
+<a id="topFocus" href="#AC" class="sr-only sr-only-focusable" title="跳到主要內容區塊" tabindex="1">跳到主要內容區塊</a>
+<div class="body"> 
+ <header id="header" class="header-no-border-bottom" data-plugin-options="{"stickyEnabled": false, "stickyEnableOnBoxed": true, "stickyEnableOnMobile": false, "stickyStartAt": 150, "stickySetTop": "-150px", "stickyChangeLogo": false}">
+ <div class="header-body">
+ <div class="header-top">
+ <div class="container">
+ <p>
+ <span class="ml-xs tel"><i class="fa fa-phone mr-xs"></i>：02-89526055 <span class="ml-sm mr-sm">|</span> <i class="fa fa-print mr-xs" aria-hidden="true"></i>：02-89526066</span>
+ </p>
+ <div class="header-top-nav">
+ <div id="U" style="position:absolute;">
+	<a href="#U" id="AU" title="上方連結區" accesskey="U"  tabindex="1">:::</a>
+</div>	
+<ul>
+	<li><a href="index.php" title="回首頁" tabindex="5"><i class="fa fa-home mr-sm" aria-hidden="true"></i>回首頁</a></li>
+	<li><a href="index.php?act=sitemap" title="網站導覽" tabindex="5">網站導覽</a></li>
+	<li><a href="https://service.ntpc.gov.tw/contact/" title="市長信箱(另開視窗)" target="_blank" rel="noreferrer noopener" tabindex="5">市長信箱</a></li>
+	<li><a href="index.php?code=list&ids=19" title="資訊公開" tabindex="5">資訊公開</a></li>
+	<li><a href="../eng/index.php" title="English(另開視窗)" target="_blank" rel="noreferrer noopener" tabindex="5">English</a></li>
+</ul>
+ </div>
+ </div>
+ </div>
+ <div class="header-container container">
+ <div class="header-row">
+ <div class="header-column">
+ <div class="header-logo">
+ <h1 class="mb-none">
+ <a href="index.php" tabindex="5" title="回「漁業及漁港事業管理處」至首頁">
+ <img alt="漁業及漁港事業管理處" data-sticky-top="33" src="../upload/cht/assets/images/logo.png">
+ </a>
+ </h1>
+ </div>
+ </div>
+ <div class="header-column vertical-bottom">
+ <div class="row mb-md">
+ <ul class="header-social-icons social-icons">
+	<li class="social-icons-facebook"><a href="https://www.facebook.com/ntpcfishery/" target="_blank" rel="noreferrer noopener" title="Facebook(另開視窗)" tabindex="5"><i class="fa fa-facebook"></i><span 
+ class="sr-only">漁業處facebook</span></a></li>
+	<li class="social-icons-youtube"><a href="https://www.youtube.com/channel/UCZ6pOTpP4cYWT-jrnc1fY-Q" target="_blank" rel="noreferrer noopener" title="youtube(另開視窗)" tabindex="5"><i class="fa fa-youtube-play"></i><span class="sr-only">漁業處youtube<span></a></li>
+	
+	<li class="social-icons-twitter"><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener" title="Twitter(另開視窗)" tabindex="5"><i class="fa fa-twitter" ></i><span class="sr-only">Twitter</span></a></li>
+</ul>
+ </div>
+ </div>
+ <div class="header-column vertical-bottom">
+ <div class="row">
+ <div class="col-md-12 search-hot">
+	<span>熱門關鍵字：</span>
+	
+	<a href="index.php?act=article&code=search&keyword=萬里蟹&postFlag=1" titla="萬里蟹" tabindex="5">萬里蟹</a>
+	
+	<a href="index.php?act=article&code=search&keyword=龜吼&postFlag=1" titla="龜吼" tabindex="5">龜吼</a>
+	
+	<a href="index.php?act=article&code=search&keyword=保育區&postFlag=1" titla="保育區" tabindex="5">保育區</a>
+	
+	<a href="index.php?act=article&code=search&keyword=貢寮鮑&postFlag=1" titla="貢寮鮑" tabindex="5">貢寮鮑</a>
+	
+	<a href="index.php?act=article&code=search&keyword=富基魚市&postFlag=1" titla="富基魚市" tabindex="5">富基魚市</a>
+	
+</div>
+ </div>
+ <div class="row mb-md">
+ <div class="col-xs-2">
+ <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+ <i class="fa fa-bars"></i><span class="sr-only">選單</span>
+ </button>
+ </div>
+ <div class="col-xs-10 col-md-12">
+ <div class="header-search">
+ <form id="searchbar" action="index.php" method="get" autocomplete="on">
+	<div  id="imaginary_container" class="input-group">
+		<label for="keyword">
+			<input type="text" class="form-control" name="keyword" id="keyword" placeholder="輸入查詢關鍵字" title="輸入查詢關鍵字" required tabindex="5">
+		</label>
+			<input name="act" value="article" type="hidden">
+			<input name="code" value="search" type="hidden">
+			<input name="postFlag" value="1" type="hidden">      
+		<span class="input-group-btn">
+			<button id="search_submit" class="btn btn-default" type="submit"  tabindex="5" title="搜尋"><i class="fa fa-search"></i><span class="sr-only">搜尋</span></button>
+		</span>
+	</div>
+</form>
+ </div>
+ </div> 
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="header-container header-nav header-nav-bar">
+ <div class="container">
+ <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
+ <nav>
+ <ul class="nav nav-pills" id="mainNav">
+	<li class="dropdown">
+		<a class="dropdown-toggle" href="javascript:void(0);" tabindex="10" title="漁業處介紹">
+			漁業處介紹
+		</a>
+		<ul class="dropdown-menu">
+			<li><a href="index.php?code=list&ids=14" tabindex="10" title="處長介紹">處長介紹</a></li>
+			<li><a href="index.php?code=list&ids=15" tabindex="10" title="業務介紹">業務介紹</a></li>
+			<li><a href="index.php?code=list&ids=16" tabindex="10" title="組織架構">組織架構</a></li>
+			<li><a href="index.php?code=list&ids=18" tabindex="10" title="聯絡我們">聯絡我們</a></li>
+			<li><a href="index.php?code=list&ids=19" tabindex="10" title="資訊公開">資訊公開</a></li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-toggle" href="javascript:void(0);" tabindex="10" title="最新消息">
+			最新消息
+		</a>
+		<ul class="dropdown-menu">
+			<li><a href="index.php?code=list&ids=20" tabindex="10" title="新聞發佈">新聞發佈</a></li>
+			<li><a href="index.php?code=list&ids=21" tabindex="10" title="活動訊息">活動訊息</a></li>
+			<li><a href="index.php?code=list&ids=22" tabindex="10" title="徵才訊息">徵才訊息</a></li>
+			<li><a href="index.php?code=list&ids=155" tabindex="10" title="重要公告">重要公告</a></li>
+			<li><a href="index.php?code=list&ids=219" tabindex="10" title="澄清專區">澄清專區</a></li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-toggle" href="javascript:void(0);" tabindex="10" title="漁港資訊">
+			漁港資訊
+		</a>
+		<ul class="dropdown-menu">
+			<li class="dropdown-submenu"><a href="javascript:void(0);" tabindex="10" title="漁港介紹">漁港介紹</a>
+				<ul class="dropdown-menu">
+					<li><a href="index.php?code=list&ids=56" tabindex="10" title="石門地區">石門地區</a></li>
+					<li><a href="index.php?code=list&ids=57" tabindex="10" title="三芝地區">三芝地區</a></li>
+					<li><a href="index.php?code=list&ids=58" tabindex="10" title="淡水地區">淡水地區</a></li>
+					<li><a href="index.php?code=list&ids=59" tabindex="10" title="八里地區">八里地區</a></li>
+					<li><a href="index.php?code=list&ids=60" tabindex="10" title="金山地區">金山地區</a></li>
+					<li><a href="index.php?code=list&ids=61" tabindex="10" title="萬里地區">萬里地區</a></li>
+					<li><a href="index.php?code=list&ids=62" tabindex="10" title="瑞芳地區">瑞芳地區</a></li>
+					<li><a href="index.php?code=list&ids=63" tabindex="10" title="貢寮地區">貢寮地區</a></li>
+				</ul>
+			</li>
+			<li class="dropdown-submenu"><a href="javascript:void(0);" tabindex="10" title="漁港建設">漁港建設</a>
+				<ul class="dropdown-menu">
+					<li><a href="index.php?code=list&ids=210" tabindex="10" title="漁港建設">漁港建設</a></li>
+					<li class="dropdown-submenu"><a href="javascript:void(0);" tabindex="10" title="前瞻水環境">前瞻水環境</a>
+						<ul class="dropdown-menu">
+							<li><a href="index.php?code=list&ids=212" tabindex="10" title="全國水環境改善計畫第一批次工程項目">全國水環境改善計畫第一批次工程項目</a></li>
+							<li><a href="index.php?code=list&ids=213" tabindex="10" title="全國水環境改善計畫第二批次工程項目">全國水環境改善計畫第二批次工程項目</a></li>
+							<li><a href="index.php?code=list&ids=214" tabindex="10" title="全國水環境改善計畫相關事宜">全國水環境改善計畫相關事宜</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><a href="index.php?code=list&ids=154" tabindex="10" title="漁港認養">漁港認養</a></li>
+			<li><a href="index.php?code=list&ids=159" tabindex="10" title="漁港垂釣區">漁港垂釣區</a></li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-toggle" href="javascript:void(0);" tabindex="10" title="漁業管理">
+			漁業管理
+		</a>
+		<ul class="dropdown-menu">
+			<li class="dropdown-submenu">
+				<a href="index.php?code=list&ids=28" tabindex="10" title="特色漁業">特色漁業</a>
+				<ul class="dropdown-menu">
+					<li><a href="index.php?code=list&ids=72" tabindex="10" title="淡水魩鱙漁業">淡水魩鱙漁業</a></li>
+					<li><a href="index.php?code=list&ids=73" tabindex="10" title="金山磺火漁業">金山磺火漁業</a></li>
+					<li><a href="index.php?code=list&ids=74" tabindex="10" title="萬里蟹">萬里蟹</a></li>
+					<li><a href="index.php?code=list&ids=75" tabindex="10" title="瑞芳娛樂漁業">瑞芳娛樂漁業</a></li>
+					<li><a href="index.php?code=list&ids=76" tabindex="10" title="貢寮區劃漁業權">貢寮區劃漁業權</a></li>
+				</ul>
+			</li>
+			<li class="dropdown-submenu">
+				<a href=" index.php?code=list&ids=29" tabindex="10" title="安心標章">安心標章</a>
+				<ul class="dropdown-menu">
+					<li><a href=" index.php?code=list&ids=46" tabindex="10" title="標章介紹">標章介紹</a></li>
+					<li><a href=" index.php?code=list&ids=47" tabindex="10" title="申辦流程">申辦流程</a></li>
+					<li><a href=" index.php?code=list&ids=48" tabindex="10" title="標章使用名冊">標章使用名冊</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-toggle" href="javascript:void(0);" tabindex="10" title="資源保育">
+			資源保育
+		</a>
+		<ul class="dropdown-menu">
+			<li class="dropdown-submenu">
+				<a href="index.php?code=list&ids=30" tabindex="10" title="永續漁業">永續漁業</a>
+				<ul class="dropdown-menu">
+					<li><a href="index.php?code=list&ids=140" tabindex="10" title="人工魚礁禁漁區">人工魚礁禁漁區</a></li>
+					<li><a href="index.php?code=list&ids=141" tabindex="10" title="保護礁禁漁區">保護礁禁漁區</a></li>
+					<li><a href="index.php?code=list&ids=142" tabindex="10" title="禁刺網區">禁刺網區</a></li>
+					<li><a href="index.php?code=list&ids=143" tabindex="10" title="保育區">保育區</a></li>
+				</ul>
+			</li>
+			<li class="dropdown-submenu">
+				<a href="index.php?code=list&ids=31" tabindex="10" title="復育園區">復育園區</a>
+				<ul class="dropdown-menu">
+					<li><a href="index.php?code=list&ids=49" tabindex="10" title="園區概況">園區概況</a></li>
+					<li><a href="index.php?code=list&ids=50" tabindex="10" title="復育工作">復育工作</a></li>
+					<li><a href="index.php?code=list&ids=51" tabindex="10" title="入園資訊">入園資訊</a></li>
+					<li><a href="index.php?code=list&ids=52" tabindex="10" title="導覽內容">導覽內容</a></li>
+					<li><a href="index.php?code=list&ids=53" tabindex="10" title="海濱生物">海濱生物</a></li>
+				</ul>
+			</li>
+			<li ><a href="index.php?code=list&ids=164" tabindex="10" title="野柳水下光傳輸影像">野柳水下光傳輸影像</a></li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-toggle" href="javascript:void(0);" tabindex="10" title="漁樂媒體">
+			漁樂媒體
+		</a>		
+		<ul class="dropdown-menu">
+                        <li><a href="index.php?code=list&ids=32" tabindex="10" title="活動花絮">活動花絮</a></li>					
+			<li><a href="index.php?code=list&ids=33" tabindex="10" title="影音專區">影音專區</a></li>	
+                        <li><a href="index.php?code=list&ids=216" tabindex="10" title="電子書">電子書</a></li>	
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-toggle" href="javascript:void(0);" tabindex="10" title="漁業法規">
+			漁業法規
+		</a>
+		<ul class="dropdown-menu">
+			<li>
+				<a href="index.php?code=list&ids=35" tabindex="10" title="法規介紹">法規介紹</a>				
+			</li>
+			<li><a href="index.php?code=list&ids=36" tabindex="10" title="本市公告">本市公告</a></li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-toggle" href="javascript:void(0);" tabindex="10" title="為民服務">
+			為民服務
+		</a>
+		<ul class="dropdown-menu">
+			<li><a href="index.php?code=list&ids=37" tabindex="10" title="漁業證照申請(另開視窗)" target="_blank" rel="noreferrer noopener">漁業證照申請</a></li>
+			<li class="dropdown-submenu">
+				<a href="index.php?code=list&ids=38" tabindex="10" title="場地租用">場地租用</a>
+				<ul class="dropdown-menu">
+					<li><a href="index.php?code=list&ids=84" tabindex="10" title="申請要點">申請要點</a></li>
+					<li><a href="index.php?code=list&ids=85" tabindex="10" title="場地地圖">場地地圖</a></li>
+					<li><a href="index.php?code=list&ids=160" tabindex="10" title="場地實境導覽" target="_blank" rel="noreferrer noopener">場地實境導覽</a></li>
+					<li><a href="index.php?code=list&ids=86" tabindex="10" title="注意事項">注意事項</a></li>
+					<li><a href="index.php?code=list&ids=87" tabindex="10" title="管理規則">管理規則</a></li>
+					<li><a href="index.php?code=list&ids=88" tabindex="10" title="收費標準">收費標準</a></li>
+					<li><a href="index.php?code=list&ids=91" tabindex="10" title="申請程序">申請程序</a></li>
+					<li><a href="index.php?code=list&ids=92" tabindex="10" title="申請流程">申請流程</a></li>
+					<li><a href="index.php?code=list&ids=93" tabindex="10" title="變更或取消">變更或取消</a></li>
+				</ul>
+			</li>
+			<li><a href="index.php?code=list&ids=39" tabindex="10" title="常見問答">常見問答</a></li>
+			<li><a href="index.php?code=list&ids=40" tabindex="10" title="預約導覽">預約導覽</a></li>
+			<li><a href="index.php?code=list&ids=156" tabindex="10" title="表單下載">表單下載</a></li>
+			<li><a href="index.php?code=list&ids=202" tabindex="10" title="活動報名">活動報名</a></li>
+			<li><a href="index.php?code=list&ids=208" tabindex="10" title="進出漁港申請">進出漁港申請</a></li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-toggle" href="javascript:void(0);" tabindex="10" title="娛樂情報站">
+			娛樂情報站
+		</a>
+		<ul class="dropdown-menu">
+			<li><a href="index.php?code=list&ids=41" tabindex="10" title="作伙尋鮮趣">作伙尋鮮趣</a></li>
+			<li><a href="index.php?code=list&ids=42" tabindex="10" title="鮮貨哪裡買">鮮貨哪裡買</a></li>
+			<li><a href="index.php?code=list&ids=44" tabindex="10" title="行動娛樂園">行動漁樂園</a></li>
+			<li><a href="index.php?code=list&ids=161" tabindex="10" title="遊程遊艇圖">遊程遊艇圖</a></li>
+			<li><a href="index.php?code=list&ids=162" tabindex="10" title="搭船出海去">搭船出海去</a></li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a class="dropdown-toggle" href="javascript:void(0);" tabindex="10" title="相關連結">
+			相關連結
+		</a>
+		<ul class="dropdown-menu">
+			<li><a href="index.php?code=list&ids=45" tabindex="10" title="漁會介紹">漁會介紹</a></li>
+		</ul>
+	</li>
+</ul>
+ </nav>
+ </div>
+ </div>
+ </div>
+ </div>
+ </header><!--header end-->
+ <div role="main" class="main">
+ <section class="page-header" style="background-image: url(../upload/cht/assets/images/page-banner-five.png)">
+	<div class="container">						
+		<div class="row">
+			<div class="col-md-12 text-center h1-class">
+				<h2><strong>永續漁業</strong></h2>
+			</div>
+		</div>
+	</div>
+</section><!--page-header end-->
+<div class="container">
+	<div class="row">
+		<div class="col-md-2">
+			<div id="L" style="Z-INDEX: 2; POSITION: absolute">
+	<a href="#L" id="AL" title="左方連結區" accesskey="L"   tabindex="51" style="display:inline-block;">
+		<span color="#000000">:::</span>
+	</a>
+</div>
+			<div class="activity mb-xlg">
+				<h3>資源保育</h3>
+			</div>
+			<ul class="page-nav-left  hidden-sm hidden-xs">
+	<li id="left-nav-five1"><a href="index.php?code=list&ids=30" title="永續漁業" tabindex="51">永續漁業 <i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
+	<li id="left-nav-five2"><a href="index.php?code=list&ids=31" title="復育園區" tabindex="51">復育園區 <i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
+	<li id="left-nav-five3"><a href="index.php?code=list&ids=164" title="野柳水下光傳輸影像(另開視窗)" tabindex="51" target="_blank">野柳水下<br>光傳輸影像 <i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
+</ul>
+<script>  
+var urlParams;
+(window.onpopstate = function () {
+    var match,
+        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query  = window.location.search.substring(1);
+
+    urlParams = Array();
+    while (match = search.exec(query))
+       urlParams[decode(match[1])] = decode(match[2]);
+})();
+
+if(urlParams["ids"]==30){
+   $("#left-nav-five1").addClass("active");
+}
+else if(urlParams["ids"]==31){
+   $("#left-nav-five2").addClass("active");
+}
+else if(urlParams["ids"]==164){
+   $("#left-nav-five3").addClass("active");
+}
+</script>
+		</div><!--col-md-3 end-->
+		<div class="col-md-10">							
+			<div id="C" style="Z-INDEX: 2; POSITION: absolute">
+	<a href="#C" id="AC" title="中間連結區" accesskey="C"  tabindex="90" style="display:inline-block;">
+		<span color="#000000">:::</span>
+	</a>
+</div>
+			<div class="row">
+				<div class="col-md-9">
+					<ul class="breadcrumb">
+	<li><a href="index.php" title="首頁" tabindex="90">首頁</a></li>
+	<li> > <a href="index.php?code=list&ids=7" title="資源保育" tabindex="90" class="position">資源保育</a>  > <a href="index.php?code=list&ids=30" title="永續漁業" tabindex="90" class="position">永續漁業</a>  > <a href="index.php?code=list&ids=143" title="保育區" tabindex="90" class="position">保育區</a> > 瑞芳保育區</li>
+</ul>
+				</div>
+				<div class="col-md-3">
+					<div class="fontsize hidden-sm hidden-xs">
+	<span>字型設定:</span>
+	<a tabindex="103" href="javascript: void(0)" data-fontsize="21px" title="字型大">大</a>
+	<a tabindex="102" href="javascript: void(0)" data-fontsize="18px" title="字型中">中</a>
+	<a tabindex="101" href="javascript: void(0)" data-fontsize="14px" title="字型小">小</a>
+</div>
+<noscript><p>您的瀏覽器不支援JavaScript功能，若網頁功能無法正常使用時，請開啟瀏覽器JavaScript狀態</p></noscript>
+				</div>
+			</div>
+			<section class="content">
+  				<div class="row">
+  					<div class="three-nav-class">
+	<div class="col-sm-3" id="top-four-nav01">
+		<a href="index.php?code=list&ids=140" tabindex="110" title="人工魚礁禁漁區">人工魚礁禁漁區</a>
+	</div>
+	<div class="col-sm-3" id="top-four-nav02">
+		<a href="index.php?code=list&ids=141" tabindex="110" title="保護礁禁漁區">保護礁禁漁區</a>
+	</div>
+	<div class="col-sm-3" id="top-four-nav03">
+		<a href="index.php?code=list&ids=142" tabindex="110" title="禁刺網區">禁刺網區</a>
+	</div>		
+	<div class="col-sm-3" id="top-four-nav04">
+		<a href="index.php?code=list&ids=143" tabindex="110" title="保育區">保育區</a>
+	</div>				
+</div>
+<script>  
+	var urlParams;
+	(window.onpopstate = function () {
+		var match,
+			pl     = /\+/g,  // Regex for replacing addition symbol with a space
+			search = /([^&=]+)=?([^&]*)/g,
+			decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+			query  = window.location.search.substring(1);
+
+		urlParams = Array();
+		while (match = search.exec(query))
+		   urlParams[decode(match[1])] = decode(match[2]);
+	})();
+
+	if(urlParams["ids"]==140){
+	   $("#top-four-nav01").addClass("active");
+	}	
+	else if(urlParams["ids"]==141){
+	   $("#top-four-nav02").addClass("active");
+	}
+	else if(urlParams["ids"]==142){
+	   $("#top-four-nav03").addClass("active");
+	}
+	else if(urlParams["ids"]==143){
+	   $("#top-four-nav04").addClass("active");
+	}	
+</script>
+  				</div>
+				<!-- beginRow print-->
+<h4 class="text-primary mb-none  line-height-xl"><strong>瑞芳保育區</strong></h4>	
+<article class="mt-xlg mb-xlg text-justify">
+	<div class="mb-md">
+		<figure class="img-border-br-45">
+			<img src="../upload/cht/article/cc301ed3b48fb2d217ea250e95d7fd89.png" alt="瑞芳保育區" width="100%" />				
+		</figure>
+	</div>
+	<div>
+<div>
+<h4>點位座標</h4>
+
+<table border="1" cellpadding="1" cellspacing="1" style="width:500px;">
+	<tbody>
+		<tr>
+			<td style="text-align: center;"><span style="font-weight: 700; text-align: center;">各點位</span></td>
+			<td style="text-align: center;"><span style="font-weight: 700; text-align: center;">地理位置</span></td>
+			<td style="text-align: center;"><span style="font-weight: 700; text-align: center;">座標(WGS84)</span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">A點</td>
+			<td style="text-align: center;">深澳昭明宮東北方300公尺小凸岬</td>
+			<td style="text-align: center;">N 25&deg; 8&#39;3.776&quot;, E121&deg;48&#39;51.502&quot;</td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">B點</td>
+			<td style="text-align: center;">自A點距岸580公尺</td>
+			<td style="text-align: center;">N 25&deg; 8&#39;22.678&quot;, E121&deg;48&#39;51.502&quot;</td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">C點</td>
+			<td style="text-align: center;">自B點向東1700公尺</td>
+			<td style="text-align: center;">N 25&deg; 8&#39;22.678&quot;, E121&deg;49&#39;52.744&quot;</td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">D點</td>
+			<td style="text-align: center;">海濱隧道北出口(蝙蝠洞)以北500公尺</td>
+			<td style="text-align: center;">N 25&deg; 7&#39;51.35&quot;, E121&deg;49&#39;52.744&quot;</td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">E點</td>
+			<td style="text-align: center;">深澳漁港北堤東南東方300m</td>
+			<td style="text-align: center;">N 25&deg; 7&#39;51.35&quot;, E121&deg;49&#39;35.137&quot;</td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">F點</td>
+			<td style="text-align: center;">深澳漁港北堤</td>
+			<td style="text-align: center;">N 25&deg; 7&#39;55.172&quot;, E121&deg;49&#39;26.307&quot;</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</div>
+
+<div><br />
+<!--table end--></div>
+
+<div>
+<div>
+<h4><br />
+區域概述</h4>
+</div>
+</div>
+
+<p><br />
+面積為124公頃，在海床底質上近岸區域以礁岩存在，並可看出陸上岩層延續至海中的現象。另外由於區域內的海床基盤都為台灣造山帶的古沉積岩（以砂頁岩為主），因此在水深較深的地方海床出現比較多有薄砂覆蓋的礁岩海床，生物相當豐富。</p>
+
+<div>
+<div>
+<h4><strong>限制事項</strong><br />
+<br />
+<br />
+<strong>石花菜自每年10月1日起至次年4月15日禁止採捕。<br />
+九孔殼長未滿5公分者禁止採捕。<br />
+龍蝦自每年3月1日起至7月31日禁止採捕，其餘時間龍蝦長未滿20公分者禁止採捕。<br />
+海膽不含刺殼長未滿8公分者禁止採捕，另白棘三列海膽（馬糞海膽）自每年9月1日起至次年6月15日禁止採捕。<br />
+麒麟菜自每年9月1日起至次年3月15日禁止採捕。<br />
+大法螺、珊瑚與礁石禁止採捕。<br />
+珊瑚礁魚類魚體長未滿20公分者禁止採捕。<br />
+禁止使用潛水器材採捕石花菜、麒麟菜、九孔、龍蝦、海膽、大法螺、珊瑚礁魚類、珊瑚與礁石等。<br />
+禁止以非釣具類漁具進入保育區範圍內作業。</strong></h4>
+</div>
+</div>
+
+</article>
+<!-- endRow print -->
+<div class="row">
+	<div class="col-md-12">
+		<div class="content-share">
+			<ul class="share"> 
+<li><h4><strong>與您的好友分享</strong></h4></li> 
+<li>
+<script>var fbhtml_url=encodeURIComponent(window.location.toString());</script>
+<a href="javascript:void(0);" onclick="window.open('http://www.facebook.com/sharer/sharer.php?u='+fbhtml_url);return false;" title="張貼至「Facebook」(開啟新視窗)" onKeyPress="window.open('http://www.facebook.com/sharer/sharer.php?u='+fbhtml_url);return false;" tabindex="150" target="_blank" rel="noreferrer noopener">
+<i class="fa fa-facebook" aria-hidden="true"></i><span class="sr-only">分享到facebook</span>
+</a>
+</li>
+<li>
+<a href="http://twitter.com/home/?status=https://{HTTP_HOST}%2Fcht%2Findex.php%3Fcode%3Dlist%26flag%3Ddetail%26ids%3D143%26article_id%3D415" title="張貼至「Twitter」(開啟新視窗)" tabindex="150" target="_blank" rel="noreferrer noopener"><i class="fa fa-twitter" aria-hidden="true"></i><span class="sr-only">分享至Twitter</span>
+</a>
+</li>
+<li>
+<a href="http://www.plurk.com/?qualifier=shares&status=https://{HTTP_HOST}%2Fcht%2Findex.php%3Fcode%3Dlist%26flag%3Ddetail%26ids%3D143%26article_id%3D415" title="張貼至「Plurk」(開啟新視窗)" tabindex="150" target="_blank" rel="noreferrer noopener"><i class="icon-plurk" aria-hidden="true"></i><span class="sr-only">分享至Plurk</span>
+</a>
+</li>
+<li>
+<script type="text/javascript" src="//media.line.me/js/line-button.js?v=20140411"></script>
+<a href="javascript:void(0);" onclick="window.open('http://line.naver.jp/R/msg/text/?'+fbhtml_url);return false;" title="張貼至「Line」(開啟新視窗)" onKeyPress="window.open('http://line.naver.jp/R/msg/text/?'+fbhtml_url);return false;" tabindex="150" target="_blank" rel="noreferrer noopener">
+<i class="icon-line" aria-hidden="true"></i><span class="sr-only">分享至Line</span>
+</a>
+</li>
+</ul>
+		</div><!--content-share-->
+	</div><!--col-md-12 end-->
+	<div class="col-md-12">
+		<div class="web-border">
+<span>文章最後更新日期：2020-11-30</span>
+<ul class="list-inline pull-right web">
+<li><a href="#" target="_blank" title="列印" tabindex="150" onclick="javascript:window.print();" rel="noreferrer noopener"><i class="fa fa-print" aria-hidden="true"></i><span class="sr-only">列印</span></a></li>
+<li><a href="index.php?act=tranmail&category_id=143&article_id=415" title="轉寄" tabindex="150"><i class="fa fa-envelope" aria-hidden="true"></i><span class="sr-only">轉寄</span></a></li>
+<li><a href="javascript:history.back();" title="回上頁" tabindex="150"><i class="fa fa-reply" aria-hidden="true"></i><span class="sr-only">回上頁</span></a></li>
+</ul>
+<noscript>
+<p style="margin-top:10px;">您的瀏覽器不支援JavaScript，如需列印，可利用鍵盤 Ctrl + (P)。<br>如需回上一頁，IE或Firefox瀏覽器可利用鍵盤 Backspace或者alt + (←)返回。</p>
+</noscript>
+</div>
+	</div>
+</div><!--row end-->
+			</section>
+		</div><!--col-md-9 end-->
+	</div><!--row end-->
+</div><!--container end-->
+ </div><!--main end-->
+ <footer id="footer"> 
+ <section class="section fat-footer hidden-sm hidden-xs">
+ <div class="center fat-switch"><a href="#" tabindex="500" title="展開">展開</a></div>
+ <div class="container fat-footer-main open">
+ <div id="B">
+ <a href="#B" id="AB" title="下方連結區" accesskey="B" tabindex="600">:::</a>
+ </div>
+ <div class="row flex">
+	<div class="fat-footer-item">
+		<div class="fat-title"><a href="index.php?code=list&ids=3" title="漁業處介紹" tabindex="600">漁業處介紹</a></div>
+		<ul>
+			<li><a href="index.php?code=list&ids=14" title="處長介紹" tabindex="600">處長介紹</a></li>
+			<li><a href="index.php?code=list&ids=15" title="業務介紹" tabindex="600">業務介紹</a></li>
+			<li><a href="index.php?code=list&ids=16" title="組織架構" tabindex="600">組織架構</a></li>
+			<li><a href="index.php?code=list&ids=18" title="聯絡我們" tabindex="600">聯絡我們</a></li>
+			<li><a href="index.php?code=list&ids=19" title="資訊公開" tabindex="600">資訊公開</a></li>
+		</ul>
+	</div>
+	<div class="fat-footer-item">
+		<div class="fat-title"><a href="index.php?code=list&ids=4" title="最新消息" tabindex="600">最新消息</a></div>
+		<ul>
+			<li><a href="index.php?code=list&ids=20" title="新聞發佈" tabindex="600">新聞發佈</a></li>
+			<li><a href="index.php?code=list&ids=21" title="活動訊息" tabindex="600">活動訊息</a></li>
+			<li><a href="index.php?code=list&ids=22" title="徵才訊息" tabindex="600">徵才訊息</a></li>
+			<li><a href="index.php?code=list&ids=155" title="招標公告" tabindex="600">重要公告</a></li>
+			<li><a href="index.php?code=list&ids=219" title="澄清專區" tabindex="600">澄清專區</a></li>
+		</ul>
+	</div>
+	<div class="fat-footer-item">
+		<div class="fat-title"><a href="index.php?code=list&ids=5" title="漁港資訊" tabindex="600">漁港資訊</a></div>
+		<ul>
+			<li><a href="index.php?code=list&ids=24" title="漁港介紹" tabindex="600">漁港介紹</a></li>
+			<li><a href="index.php?code=list&ids=210" title="漁港建設" tabindex="600">漁港建設</a></li>
+			<li><a href="index.php?code=list&ids=154" title="漁港認養" tabindex="600">漁港認養</a></li>
+			<li><a href="index.php?code=list&ids=159" title="漁港垂釣區" tabindex="600">漁港垂釣區</a></li>
+		</ul>
+	</div>
+	<div class="fat-footer-item">
+		<div class="fat-title"><a href="index.php?code=list&ids=6" title="漁業管理" tabindex="600">漁業管理</a></div>
+		<ul>
+			<li><a href="index.php?code=list&ids=28" title="特色漁業" tabindex="600">特色漁業</a>
+				<ul>
+					<li><a href="index.php?code=list&ids=72" title="淡水魩鱙漁業" tabindex="600">淡水魩鱙漁業</a></li>
+					<li><a href="index.php?code=list&ids=73" title="金山磺火漁業" tabindex="600">金山磺火漁業</a></li>
+					<li><a href="index.php?code=list&ids=74" title="萬里蟹" tabindex="600">萬里蟹</a></li>
+					<li><a href="index.php?code=list&ids=75" title="瑞芳娛樂漁業" tabindex="600">瑞芳娛樂漁業</a></li>
+					<li><a href="index.php?code=list&ids=76" title="貢寮區劃漁業權" tabindex="600">貢寮區劃漁業權</a></li>
+				</ul>
+			</li>
+			<li><a href="index.php?code=list&ids=29" title="安心標章" tabindex="600">安心標章</a>
+				<ul>
+					<li><a href="index.php?code=list&ids=46" title="標章介紹" tabindex="600">標章介紹</a></li>
+					<li><a href="index.php?code=list&ids=47" title="申辦流程" tabindex="600">申辦流程</a></li>
+					<li><a href="index.php?code=list&ids=48" title="標章使用名冊" tabindex="600">標章使用名冊</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="fat-footer-item">
+		<div class="fat-title"><a href="index.php?code=list&ids=7" title="資源保育" tabindex="600">資源保育</a></div>
+		<ul>
+			<li><a href="index.php?code=list&ids=30" title="永續漁業" tabindex="600">永續漁業</a>
+				<ul>
+					<li><a href="index.php?code=list&ids=140" title="人工魚礁禁漁區" tabindex="600">人工魚礁禁漁區</a></li>
+					<li><a href="index.php?code=list&ids=141" title="保護礁禁漁區" tabindex="600">保護礁禁漁區</a></li>
+					<li><a href="index.php?code=list&ids=142" title="禁刺網區" tabindex="600">禁刺網區</a></li>
+					<li><a href="index.php?code=list&ids=143" title="保育區" tabindex="600">保育區</a></li>
+				</ul>
+			</li>
+			<li><a href="index.php?code=list&ids=31" title="復育園區" tabindex="600">復育園區</a>
+				<ul>
+					<li><a href="index.php?code=list&ids=49" title="園區概況" tabindex="600">園區概況</a></li>
+					<li><a href="index.php?code=list&ids=50" title="復育工作" tabindex="600">復育工作</a></li>
+					<li><a href="index.php?code=list&ids=51" title="入園資訊" tabindex="600">入園資訊</a></li>
+					<li><a href="index.php?code=list&ids=52" title="導覽內容" tabindex="600">導覽內容</a></li>
+					<li><a href="index.php?code=list&ids=53" title="海濱生物" tabindex="600">海濱生物</a></li>
+				</ul>
+			</li>
+			<li><a href="index.php?code=list&ids=164" title="野柳水下光傳輸影像" tabindex="600">野柳水下光傳輸影像</a></li>
+		</ul>
+	</div>
+	<div class="fat-footer-item">
+		<div class="fat-title"><a href="index.php?code=list&ids=8" title="漁樂媒體" tabindex="600">漁樂媒體</a></div>
+		<ul>
+			<li><a href="index.php?code=list&ids=32" title="活動花絮" tabindex="600">活動花絮</a></li>			
+			<li><a href="index.php?code=list&ids=33" title="影音專區" tabindex="600">影音專區</a></li>
+                       <li><a href="index.php?code=list&ids=216" title="電子書" tabindex="600">電子書</a></li>
+		</ul>
+	</div>
+	<div class="fat-footer-item">
+		<div class="fat-title"><a c href="index.php?code=list&ids=9" title="漁業法規" tabindex="600">漁業法規</a></div>
+		<ul>
+			<li><a href="index.php?code=list&ids=35" title="法規介紹" tabindex="600">法規介紹</a></li>
+			<li><a href="index.php?code=list&ids=36" title="本市公告" tabindex="600">本市公告</a></li>
+		</ul>
+	</div>
+	<div class="fat-footer-item">
+		<div class="fat-title"><a href="index.php?code=list&ids=10" title="為民服務" tabindex="600">為民服務</a></div>
+		<ul>
+			<li><a href="index.php?code=list&ids=37" title="漁業證照申請(另開視窗)" tabindex="600">漁業證照申請</a></li>
+			<li><a href="index.php?code=list&ids=38" title="場地租用" tabindex="600">場地租用</a></li>
+			<li><a href="index.php?code=list&ids=39" title="常見問答" tabindex="600">常見問答</a></li>
+			<li><a href="index.php?code=list&ids=40" title="預約導覽" tabindex="600">預約導覽</a></li>
+			<li><a href="index.php?code=list&ids=156" title="表單下載" tabindex="600">表單下載</a></li>
+			<li><a href="index.php?code=list&ids=202" title="活動報名" tabindex="600">活動報名</a></li>
+<li><a href="index.php?code=list&ids=208" title="進出漁港申請" tabindex="600">進出漁港申請</a></li>
+		</ul>
+	</div>
+	<div class="fat-footer-item">
+		<div class="fat-title"><a href="index.php?code=list&ids=11" title="娛樂情報站" tabindex="600">娛樂情報站</a></div>
+		<ul>
+			<li><a href="index.php?code=list&ids=41" title="作伙尋鮮趣" tabindex="600">作伙尋鮮趣</a></li>
+			<li><a href="index.php?code=list&ids=42" title="鮮貨哪裡買" tabindex="600">鮮貨哪裡買</a></li>
+			<li><a href="index.php?code=list&ids=44" title="行動漁樂園" tabindex="600">行動漁樂園</a></li>
+			<li><a href="index.php?code=list&ids=161" title="遊程遊艇圖" tabindex="600">遊程遊艇圖</a></li>
+			<li><a href="index.php?code=list&ids=162" title="搭船出海去" tabindex="600">搭船出海去</a></li>
+		</ul>
+	</div>
+	<div class="fat-footer-item">
+		<div class="fat-title"><a href="index.php?code=list&ids=12" title="相關連結" tabindex="600">相關連結</a></div>
+		<ul>
+			<li><a href="index.php?code=list&ids=45" title="漁會介紹" tabindex="600">漁會介紹</a></li>
+		</ul>
+	</div>
+</div>
+ </div>
+ </section>
+ <div class="footer-copyright">
+ <div class="container">
+ <div class="row">
+ <div class="col-md-4 col-sm-6">
+ <p>新北市政府漁業及漁港事業管理處 版權所有</p>
+<p>地址：新北市板橋區中山路1段143號5樓</p>
+<p>服務時間：上午08:00~12:00；下午：13:30~17:30</p>
+<p>電話：(02)8952-6055　傳真：(02)89526066</p>
+ </div>
+ <div class="col-md-5 col-sm-6">
+ <p><a href="https://www.google.com.tw/maps/place/220%E6%96%B0%E5%8C%97%E5%B8%82%E6%9D%BF%E6%A9%8B%E5%8D%80%E4%B8%AD%E5%B1%B1%E8%B7%AF%E4%B8%80%E6%AE%B5143%E8%99%9F%E6%96%B0%E5%8C%97%E5%B8%82%E7%A8%85%E6%8D%90%E8%99%95%E7%B8%BD%E8%99%95/@25.0115767,121.4620013,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a81ec078b819:0x2514188a5432911!8m2!3d25.0115414!4d121.4640966?hl=zh-TW" 
+rel="noreferrer noopener" target="_blank" title="單位地圖" tabindex="700">單位地圖</a> ∣ 
+<a href="index.php?code=list&ids=13" title="隱私權政策" tabindex="700">隱私權政策</a> ∣ 
+<a href="index.php?code=list&ids=204" title="著作權聲明" tabindex="700">著作權聲明</a> ∣ 
+<a href="index.php?code=list&ids=205" title="網站安全政策" tabindex="700">網站安全政策</a></p>
+ <p>瀏覽人數：35771646</p>
+ <p>建議瀏覽器：Chrome，Firefox，IE10.0以上版本 </p>
+ <p>( 螢幕最佳顯示效果為1366 x 768 )　</p>
+ </div>
+ <div class="col-md-3">
+ <ul class="list-inline">
+	<li><a href="https://accessibility.moda.gov.tw/Applications/Detail?category=20240605133717" tabindex="700" target="_blank" rel="noreferrer noopener" width="88" height="31" title="通過AA無障礙網頁檢測(另開視窗)"  style="display: inline-block;width:110px;"><img src="../upload/cht/attachment/9c758bd7f9723c11d335dc7caf4c2c32.jpg" alt="無障礙A標章" class="img-responsive"></a></li>
+	<li><img src="../upload/cht/attachment/bc478706855b59abeeb1f77273138aa4.png" style="width:70px" alt="新北市政府漁業及漁港事業管理處網站QR Code" class="img-responsive"></li>
+	<li><a href="http://www.gov.tw/" target="_blank" rel="noreferrer noopener" tabindex="700" title="我的E政府(另開視窗)"  style="display: inline-block;"><img src="../upload/cht/assets/images/gov.png" alt="我的E政府" class="img-responsive"></a></li>
+</ul>
+ </div>
+ </div>
+ </div>
+ </div>
+ </footer><!--footer end-->
+</div>
+<!-- Vendor -->
+<!-- <script src="../upload/cht/assets/vendor/jquery/jquery.min.js"></script> -->
+<script src="../upload/cht/assets/vendor/jquery.appear/jquery.appear.min.js"></script>
+<script src="../upload/cht/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="../upload/cht/assets/vendor/jquery-cookie/jquery-cookie.min.js"></script>
+<script src="../upload/cht/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../upload/cht/assets/vendor/common/common.min.js"></script>
+<script src="../upload/cht/assets/vendor/jquery.validation/jquery.validation.min.js"></script>
+<script src="../upload/cht/assets/vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+<script src="../upload/cht/assets/vendor/jquery.gmap/jquery.gmap.min.js"></script>
+<script src="../upload/cht/assets/vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+<script src="../upload/cht/assets/vendor/isotope/jquery.isotope.min.js"></script>
+<script src="../upload/cht/assets/vendor/owl.carousel/owl.carousel.js"></script>
+<script src="../upload/cht/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="../upload/cht/assets/vendor/vide/vide.min.js"></script>
+
+<!--datepicker-->
+<script src="../upload/cht/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="../upload/cht/assets/vendor/bootstrap-datepicker/locales/bootstrap-datepicker.zh-TW.min.js"></script>
+
+<!-- Theme Base, Components and Settings -->
+<script src="../upload/cht/assets/js/theme.js"></script>
+
+<!--timelinr-->
+<script src="../upload/cht/assets/vendor/timelinr/jquery.timelinr-0.9.4.js"></script>
+
+<!-- Theme Custom -->
+<script src="../upload/cht/assets/js/custom.js"></script>
+
+<!-- Theme Initialization Files -->
+<script src="../upload/cht/assets/js/theme.init.js"></script>
+
+<!-- Examples -->
+<script src="../upload/cht/assets/js/examples/examples.lightboxes.js"></script>
+<!-- JqCloud -->
+<script src="../js/jqcloud.min.js"></script>
+
+<!-- Examples -->
+<script src="../upload/cht/assets/js/examples/examples.lightboxes.js"></script> 
+<script src="../upload/cht/assets/js/examples/examples.gallery.js"></script>
+
+<!-- Theme Custom -->
+
+
+<!-- calendar -->
+<script src="../upload/cht/assets/vendor/fullcalendar/lib/moment.min.js"></script>
+<script src="../upload/cht/assets/vendor/fullcalendar/fullcalendar.js?v=1"></script>
+
+<script>
+$(".scroll-to-top").attr({tabIndex: "620",title: "至頂"}).on("click",function(){$("#topFocus").focus();});
+$("article a").attr("tabindex","110");
+</script><!-- <style>
+	.content {
+		font-size: 18px;
+	}
+.fontsize > a:nth-child(3) {
+        background-color: #009fe8;
+        border-color: #009fe8;
+        color: #fff;
+}
+</style>-->
+<!--
+<p align="center">
+
+-->
+
+</body>
+
+</html>
